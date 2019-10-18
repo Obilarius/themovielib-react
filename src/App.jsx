@@ -1,16 +1,10 @@
 import React from "react";
-import Ninjas from "./components/Ninjas";
+import PopularMovies from "./components/PopularMovies";
 
 function App() {
   return (
-    <div>
-      <h1 className="title"> Ninjago - a REST API </h1>
-      <div id="homepage">
-        <h1> Hire a ninja in your area! </h1>
-        <div id="ninjas">
-          <Ninjas />
-        </div>
-      </div>
+    <div className="container">
+      <PopularMovies />
     </div>
   );
 }

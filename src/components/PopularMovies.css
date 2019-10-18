@@ -1,0 +1,12 @@
+.popularMovies img {
+  width: 100%;
+}
+
+.popularMovies div {
+  padding: 0px;
+}
+
+.popularMovies .row {
+  margin-left: 0px;
+  margin-right: 0px;
+}
