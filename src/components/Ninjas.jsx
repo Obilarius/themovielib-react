@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 class Ninjas extends Component {
   constructor(props) {
@@ -11,13 +12,11 @@ class Ninjas extends Component {
   handleSubmit = e => {
     e.preventDefault();
     const lng = this.refs.lng.value;
-    const lat = this.refs.lng.value;
+    const lat = this.refs.lat.value;
 
-    fetch(`http://localhost:4000/api/ninjas?lng=${lng}&lat=${lat}`).then(
-      data => {
-        console.log(data);
-      }
-    );
+    axios
+      .get(`http://localhost:4000/api/ninjas?lng=${lng}&lat=${lat}`)
+      .then(res => this.setState({ ninjas: res.data }));
   };
 
   render() {
@@ -35,9 +34,9 @@ class Ninjas extends Component {
         <ul>
           {ninjas.map(ninja => (
             <li key={ninja._id}>
-              <span className={ninjas.obj.available}></span>
-              <span className="name">{ninjas.obj.name}</span>
-              <span className="rank">{ninjas.obj.rank}</span>
+              <span className={ninja.available.toString()}></span>
+              <span className="name">{ninja.name}</span>
+              <span className="rank">{ninja.rank}</span>
               <span className="dist">{Math.floor(ninja.dis / 1000)} km</span>
             </li>
           ))}
