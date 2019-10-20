@@ -1,1 +1,33 @@
-@import url("https://fonts.googleapis.com/css?family=Raleway");
+@import url("http://fonts.googleapis.com/css?family=Roboto:400,100");
+
+@import "./main.vars.css";
+
+body,
+html {
+  background-color: var(--theme-dark);
+  font-family: "Roboto", sans-serif;
+  /* font-variant: small-caps; */
+}
+
+.tmlib-bg-info {
+  background-color: var(--theme-info);
+}
+
+.tmlib-bg-light {
+  background-color: var(--theme-light);
+}
+
+.tmlib-btn-outline-light {
+  color: var(--theme-light);
+  border-color: var(--theme-light);
+}
+
+.tmlib-btn-info {
+  background-color: var(--theme-info);
+  color: var(--theme-light);
+  border-color: var(--theme-light);
+}
+.tmlib-btn-info:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--theme-light);
+}

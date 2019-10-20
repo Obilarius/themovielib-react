@@ -6,7 +6,7 @@ function PopularMovieItem(props) {
 
   return (
     <div className="movie_block" style={{ display: "block" }}>
-      <a href="">
+      <a href="/">
         {movie.backdrop_path && (
           <img src={img_url + movie.backdrop_path} alt="" />
         )}
