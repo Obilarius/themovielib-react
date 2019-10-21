@@ -1,17 +1,19 @@
 import React from "react";
-import PopularMovies from "./components/PopularMovies";
-import Backdrop from "./components/Startpage/Backdrop";
-import Navbar from "./components/Navbar";
-import HeroSection from "./components/Startpage/HeroSection";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Navbar from "./components/Public/Navbar";
+import Home from "./components/Sites/Home/Home";
 
 function App() {
   return (
-    <div>
-      {/* <PopularMovies /> */}
-      {/* <Backdrop /> */}
+    <React.Fragment>
       <Navbar />
-      <HeroSection />
-    </div>
+
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Home} />
+        </Switch>
+      </Router>
+    </React.Fragment>
   );
 }
 

@@ -28,11 +28,11 @@ class HeroSection extends Component {
   };
 
   render() {
-    if (this.state.movies.length === 0) return <div></div>;
+    // if (this.state.movies.length === 0) return <div></div>;
 
     const { movies } = this.state;
     const img_url =
-      "https://image.tmdb.org/t/p/w1280" + movies[0].backdrop_path;
+      movies[0] && "https://image.tmdb.org/t/p/w1280" + movies[0].backdrop_path;
 
     return (
       <div
