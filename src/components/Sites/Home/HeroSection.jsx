@@ -28,11 +28,8 @@ class HeroSection extends Component {
   };
 
   render() {
-    // if (this.state.movies.length === 0) return <div></div>;
-
-    const { movies } = this.state;
-    const img_url =
-      movies[0] && "https://image.tmdb.org/t/p/w1280" + movies[0].backdrop_path;
+    // const { movies } = this.state;
+    // const img_url = movies[0] && "https://image.tmdb.org/t/p/w1280" + movies[0].backdrop_path;
 
     return (
       <div
@@ -42,12 +39,14 @@ class HeroSection extends Component {
         <div className="container">
           <div
             className="hero-img"
-            style={{
-              backgroundImage: "url(" + img_url + ")"
-            }}
+            style={
+              {
+                // backgroundImage: "url(" + img_url + ")"
+              }
+            }
           ></div>
           <div className="hero-text">
-            <h1 className="display-1">TheMovieLib</h1>
+            <h1 className="display-1">Placeholder</h1>
             <p className="lead">A guiding light for the less enlightened...</p>
           </div>
         </div>
