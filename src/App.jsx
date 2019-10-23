@@ -1,19 +1,16 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Navbar from "./components/Public/Navbar";
-import Home from "./components/Sites/Home/Home";
+import { BrowserRouter as Router } from "react-router-dom";
+import Navbar from "./components/layout/Navbar";
+// import Home from "./components/home/Home";
 
 function App() {
   return (
-    <React.Fragment>
+    <Router>
       <Navbar />
-
-      <Router>
-        <Switch>
-          <Route exact path="/" component={Home} />
-        </Switch>
-      </Router>
-    </React.Fragment>
+      {/* <Switch>
+        <Route exact path="/" component={Home} />
+      </Switch> */}
+    </Router>
   );
 }
 

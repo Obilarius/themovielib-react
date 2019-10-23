@@ -1,30 +1,26 @@
-import React, { Component } from "react";
-import axios from "axios";
+import React, { Component } from "./node_modules/react";
+// import axios from "./node_modules/axios";
 import "./HeroSection.css";
 
 class HeroSection extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      movies: []
-    };
-  }
+  state = {
+    movies: []
+  };
 
   componentDidMount = () => {
-    axios
-      .get("http://localhost:4000/tmdb/", {
-        params: {
-          endpoint: "movie/popular",
-          param: ["language=de-de"]
-        }
-      })
-      .then(response => {
-        this.setState({ movies: response.data.results });
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    // axios
+    //   .get("http://localhost:4000/tmdb/", {
+    //     params: {
+    //       endpoint: "movie/popular",
+    //       param: ["language=de-de"]
+    //     }
+    //   })
+    //   .then(response => {
+    //     this.setState({ movies: response.data.results });
+    //   })
+    //   .catch(error => {
+    //     console.log(error);
+    //   });
   };
 
   render() {
