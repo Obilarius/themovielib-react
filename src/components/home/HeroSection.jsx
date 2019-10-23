@@ -1,4 +1,4 @@
-import React, { Component } from "./node_modules/react";
+import React, { Component } from "react";
 // import axios from "./node_modules/axios";
 import "./HeroSection.css";
 
@@ -26,6 +26,7 @@ class HeroSection extends Component {
   render() {
     // const { movies } = this.state;
     // const img_url = movies[0] && "https://image.tmdb.org/t/p/w1280" + movies[0].backdrop_path;
+    const img_url = "https://picsum.photos/1280/720";
 
     return (
       <div
@@ -35,11 +36,9 @@ class HeroSection extends Component {
         <div className="container">
           <div
             className="hero-img"
-            style={
-              {
-                // backgroundImage: "url(" + img_url + ")"
-              }
-            }
+            style={{
+              backgroundImage: "url(" + img_url + ")"
+            }}
           ></div>
           <div className="hero-text">
             <h1 className="display-1">Placeholder</h1>

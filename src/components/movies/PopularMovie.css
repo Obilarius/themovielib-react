@@ -1,0 +1,17 @@
+.popular-movies .card {
+  border: 0px;
+  border-radius: 0px;
+  height: 300px;
+  padding: 20px;
+  background-blend-mode: soft-light;
+  display: flex;
+  flex-direction: row;
+}
+
+.popular-movies .card .poster {
+  display: block;
+  max-width: 230px;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+}

@@ -1,44 +1,36 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
+import { Navbar, Nav } from "react-bootstrap";
 import "./Navbar.css";
 import SignedInLinks from "./SignedInLinks";
+import SignedOutLinks from "./SignedOutLinks";
 
-const Navbar = () => {
+const MainNavbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg tmlib-bg-info navbar-dark">
+    <Navbar className="tmlib-bg-info navbar-dark" expand="lg">
       <div className="container">
-        <button
-          className="navbar-toggler"
-          data-toggle="collapse"
-          data-target="#mainNav"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-
-        <div className="collapse navbar-collapse" id="mainNav">
-          <ul className="navbar-nav">
-            <li className="nav-item">
-              <Link className="navbar-brand" to="/">
-                TheMovieLib
-              </Link>
-            </li>
-          </ul>
+        <Link className="navbar-brand" to="/">
+          TheMovieLib
+        </Link>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="mr-auto">
+            <NavLink className="nav-link" to="/movies">
+              Movies
+            </NavLink>
+            <NavLink className="nav-link" to="/tvshows">
+              TV-Shows
+            </NavLink>
+            <NavLink className="nav-link" to="/people">
+              People
+            </NavLink>
+          </Nav>
+          <SignedOutLinks />
           <SignedInLinks />
-
-          {/* <form className="form-inline my-2 my-lg-0">
-            <input
-              type="search"
-              placeholder="Search"
-              className="form-control mr-sm-2"
-            />
-            <button className="btn tmlib-btn-info" type="submit">
-              Search
-            </button>
-          </form> */}
-        </div>
+        </Navbar.Collapse>
       </div>
-    </nav>
+    </Navbar>
   );
 };
 
-export default Navbar;
+export default MainNavbar;
