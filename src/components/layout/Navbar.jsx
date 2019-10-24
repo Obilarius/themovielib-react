@@ -10,7 +10,7 @@ const MainNavbar = () => {
     <Navbar className="tmlib-bg-info navbar-dark" expand="lg">
       <div className="container">
         <Link className="navbar-brand" to="/">
-          TheMovieLib
+          Brand
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

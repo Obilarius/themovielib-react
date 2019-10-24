@@ -1,8 +1,14 @@
 :root {
-  --theme-black: #000000 !important;
+  /* --theme-black: #130233 !important;
   --theme-dark: #14181c !important;
   --theme-dark-lighter: #9191a3 !important;
   --theme-info: #17a2b8 !important;
   --theme-light: #dee9f7 !important;
-  --theme-warning: #fa190c !important;
+  --theme-warning: #fa190c !important; */
+
+  --theme-darker: #2E3236 !important;
+  --theme-dark: #31647F !important;
+  --theme-info: #17a2b8 !important;
+  --theme-light: #E9EDF6 !important;
+  --theme-warning: #FFB33A !important;
 }

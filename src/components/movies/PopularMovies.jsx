@@ -1,41 +1,79 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import PopularMovieCard from "./PopularMovieCard";
-import "./PopularMovie.css";
+import MovieCard from "./MovieCard";
 
 function PopularMovies() {
   return (
-    <Container className="popular-movies my-3">
-      <Row>
-        <Col>
-          <PopularMovieCard />
+    <Container className="popular-movies">
+      Beliebte Filme
+      <Row className="my-4">
+        <Col md>
+          <MovieCard />
         </Col>
-        <Col>
-          <PopularMovieCard />
+        <Col md>
+          <MovieCard />
         </Col>
-      </Row>
-      <Row>
-        <Col>
-          <PopularMovieCard />
+        <Col md>
+          <MovieCard />
         </Col>
-        <Col>
-          <PopularMovieCard />
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <PopularMovieCard />
-        </Col>
-        <Col>
-          <PopularMovieCard />
+        <Col md>
+          <MovieCard />
         </Col>
       </Row>
-      <Row>
-        <Col>
-          <PopularMovieCard />
+      <Row className="my-4">
+        <Col md>
+          <MovieCard />
         </Col>
-        <Col>
-          <PopularMovieCard />
+        <Col md>
+          <MovieCard />
+        </Col>
+        <Col md>
+          <MovieCard />
+        </Col>
+        <Col md>
+          <MovieCard />
+        </Col>
+      </Row>
+      <Row className="my-4">
+        <Col md>
+          <MovieCard />
+        </Col>
+        <Col md>
+          <MovieCard />
+        </Col>
+        <Col md>
+          <MovieCard />
+        </Col>
+        <Col md>
+          <MovieCard />
+        </Col>
+      </Row>
+      <Row className="my-4">
+        <Col md>
+          <MovieCard />
+        </Col>
+        <Col md>
+          <MovieCard />
+        </Col>
+        <Col md>
+          <MovieCard />
+        </Col>
+        <Col md>
+          <MovieCard />
+        </Col>
+      </Row>
+      <Row className="my-4">
+        <Col md>
+          <MovieCard />
+        </Col>
+        <Col md>
+          <MovieCard />
+        </Col>
+        <Col md>
+          <MovieCard />
+        </Col>
+        <Col md>
+          <MovieCard />
         </Col>
       </Row>
     </Container>

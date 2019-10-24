@@ -4,7 +4,7 @@
 
 body,
 html {
-  background-color: var(--theme-dark);
+  background-color: var(--theme-darker);
   font-family: "Roboto", sans-serif;
   /* font-variant: small-caps; */
 }
@@ -35,4 +35,8 @@ html {
 
 .tmlib-color-light {
   color: var(--theme-light);
+}
+
+.tmlib-color-darker {
+  color: var(--darker);
 }
