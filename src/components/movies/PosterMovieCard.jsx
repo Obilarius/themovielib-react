@@ -1,8 +1,8 @@
 import React from "react";
 import { Card } from "react-bootstrap";
-import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
+import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
-import "./MovieCard.css";
+import "./PosterMovieCard.css";
 
 function PopularMovieCard() {
   const y = Math.floor(Math.random() * 100);
