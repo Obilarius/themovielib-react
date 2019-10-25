@@ -18,26 +18,26 @@ function SignedInLinks() {
           id="main-nav-dropdown"
         >
           <Link className="dropdown-item" to="/">
-            Home
+            home
           </Link>
           <Link className="dropdown-item" to="/">
-            Profile
+            profile
           </Link>
           <Link className="dropdown-item" to="/">
-            Diary
+            diary
           </Link>
           <Link className="dropdown-item" to="/">
-            Watchlist
+            watchlist
           </Link>
           <Link className="dropdown-item" to="/">
-            Library
+            library
           </Link>
           <NavDropdown.Divider />
           <Link className="dropdown-item" to="/">
-            Settings
+            settings
           </Link>
           <Link className="dropdown-item" to="/">
-            Sign Out
+            sign out
           </Link>
         </NavDropdown>
       </Nav>

@@ -16,13 +16,13 @@ const MainNavbar = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             <NavLink className="nav-link" to="/movies">
-              Movies
+              movies
             </NavLink>
             <NavLink className="nav-link" to="/tvshows">
-              TV-Shows
+              tv-shows
             </NavLink>
             <NavLink className="nav-link" to="/people">
-              People
+              people
             </NavLink>
           </Nav>
           <SignedOutLinks />
