@@ -1,35 +1,39 @@
 import React from "react";
-import { NavLink, Link } from "react-router-dom";
-import { Navbar, Nav } from "react-bootstrap";
-import "./Navbar.css";
+import { Link } from "react-router-dom";
+import "./Navbar.scss";
 import SignedInLinks from "./SignedInLinks";
-import SignedOutLinks from "./SignedOutLinks";
+// import SignedOutLinks from "./SignedOutLinks";
+import Searchfield from "./Searchfield";
 
 const MainNavbar = () => {
   return (
-    <Navbar className="tmlib-bg-info navbar-dark" expand="lg">
-      <div className="container">
-        <Link className="navbar-brand" to="/">
-          Brand
-        </Link>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto">
-            <NavLink className="nav-link" to="/movies">
-              movies
+    <div className="navbar-wrapper">
+      <nav className="navbar">
+        <div className="container">
+          <Link className="brand" to="/">
+            TheMovieLib
+          </Link>
+          <div className="linklist">
+            {/* <NavLink className="nav-link" to="/movies">
+              Movies
             </NavLink>
             <NavLink className="nav-link" to="/tvshows">
-              tv-shows
+              TV-Shows
             </NavLink>
             <NavLink className="nav-link" to="/people">
-              people
-            </NavLink>
-          </Nav>
-          <SignedOutLinks />
-          <SignedInLinks />
-        </Navbar.Collapse>
+              People
+            </NavLink> */}
+            {/* <SignedOutLinks /> */}
+            <SignedInLinks />
+          </div>
+        </div>
+      </nav>
+      <div className="searchfield">
+        <div className="container ">
+          <Searchfield />
+        </div>
       </div>
-    </Navbar>
+    </div>
   );
 };
 

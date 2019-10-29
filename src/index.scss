@@ -1,0 +1,21 @@
+/* @import url("http://fonts.googleapis.com/css?family=Roboto:400,100"); */
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,700");
+
+@import "./reset.scss";
+@import "./main.vars.scss";
+
+body,
+html {
+  background-color: $darkerColor;
+  font-family: "Montserrat", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  width: 70%;
+  margin: 0 auto;
+}

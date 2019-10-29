@@ -1,0 +1,84 @@
+@import "../../main.vars.scss";
+
+.navbar-wrapper {
+  nav.navbar {
+    background: $primaryColor;
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+
+      .brand {
+        font-size: 2em;
+        font-weight: bold;
+        margin: auto 0;
+      }
+
+      .linklist {
+        display: flex;
+        text-transform: lowercase;
+
+        .nav-link {
+          padding: 1em;
+          line-height: 2em;
+
+          &:hover {
+            background: darken($primaryColor, 5%);
+          }
+
+          &.active {
+            background: darken($primaryColor, 5%);
+          }
+
+          &.avatar {
+            background-image: url("https://i.pravatar.cc/50");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            margin: auto 0 auto 1rem;
+            padding: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  .searchfield {
+    background-color: $lightColor;
+    color: darken($lightColor, 30%);
+
+    .container {
+      display: flex;
+
+      &:hover i:first-child {
+        color: black;
+      }
+
+      i {
+        margin: auto 0;
+        padding-right: 1rem;
+      }
+
+      i:last-child {
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      input {
+        background: transparent;
+        border: 0;
+        line-height: 2rem;
+        width: 100%;
+        color: inherit;
+        outline: none;
+
+        &:focus ~ i:last-child {
+          opacity: 100;
+        }
+      }
+    }
+  }
+}
