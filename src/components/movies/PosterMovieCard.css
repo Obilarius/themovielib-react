@@ -1,0 +1,65 @@
+.movie-card.card {
+  border: 0px;
+  border-radius: 0px;
+  overflow: hidden;
+  height: 350px;
+}
+
+.movie-card.card .card-poster {
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+}
+
+.movie-card.card .card-img-overlay.text {
+  background-color: rgba(255, 255, 255, 0.5);
+  background-blend-mode: color;
+  opacity: 0;
+  transition: .5s ease;
+
+}
+
+.movie-card.card:hover .card-img-overlay.text {
+  opacity: 100;
+  transition: .5s ease;
+}
+
+.movie-card.card .card-img-overlay.text>div {
+  position: absolute;
+  bottom: 20px;
+}
+
+.movie-card.card .CircularProgressbar {
+  height: 50px;
+  width: auto;
+  z-index: 10;
+}
+
+/*
+.movie-crad .card .card-background {
+  width: 105%;
+  height: 105%;
+  top: -2.5%;
+  left: -2.5%;
+  filter: grayscale(100%) blur(2px) brightness(70%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+}
+
+.movie-crad .card .card-wrapper {
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  z-index: 10;
+}
+
+.movie-crad .card .card-wrapper .poster {
+  display: block;
+  max-width: 230px;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+} */

@@ -1,12 +1,12 @@
-@import url("http://fonts.googleapis.com/css?family=Roboto:400,100");
+/* @import url("http://fonts.googleapis.com/css?family=Roboto:400,100"); */
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,700");
 
 @import "./main.vars.css";
 
 body,
 html {
-  background-color: var(--theme-dark);
-  font-family: "Roboto", sans-serif;
-  /* font-variant: small-caps; */
+  background-color: var(--theme-darker);
+  font-family: "Montserrat", sans-serif;
 }
 
 .tmlib-bg-info {
@@ -35,4 +35,8 @@ html {
 
 .tmlib-color-light {
   color: var(--theme-light);
+}
+
+.tmlib-color-darker {
+  color: var(--darker);
 }

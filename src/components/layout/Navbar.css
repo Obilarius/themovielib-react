@@ -25,16 +25,19 @@ nav.navbar .nav-link.active {
 }
 
 nav.navbar .dropdown-menu {
-  background-color: var(--theme-dark-lighter);
+  background-color: var(--theme-light);
   box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 5px;
 }
-nav.navbar .dropdown-menu > .dropdown-item {
-  color: var(--theme-dark);
+
+nav.navbar .dropdown-menu>.dropdown-item {
+  color: var(--theme-darker);
 }
-nav.navbar .dropdown-menu > .dropdown-item:hover {
+
+nav.navbar .dropdown-menu>.dropdown-item:hover {
   color: var(--theme-light);
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: var(--theme-dark);
 }
-nav.navbar .dropdown-menu > .dropdown-divider {
+
+nav.navbar .dropdown-menu>.dropdown-divider {
   border-color: var(--theme-dark);
 }

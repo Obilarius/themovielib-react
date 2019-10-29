@@ -7,10 +7,10 @@ function SignedOutLinks() {
     <React.Fragment>
       <Nav>
         <NavLink className="nav-link" to="/login">
-          Login
+          login
         </NavLink>
         <NavLink className="nav-link" to="/signup">
-          Sign Up
+          sign up
         </NavLink>
       </Nav>
     </React.Fragment>
