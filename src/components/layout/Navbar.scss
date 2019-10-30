@@ -96,7 +96,7 @@
           border-radius: 50%;
           width: 17px;
           height: 17px;
-          margin: 0.3rem 0 0.3rem 1rem;
+          margin: 0.45rem 0 0.3rem 1rem;
           padding: 10px;
         }
       }
@@ -104,6 +104,11 @@
   }
 
   @media (min-width: 768px) {
+    nav.navbar {
+      .container .brand {
+        font-size: 1.4rem;
+      }
+    }
     .linklist {
       position: absolute;
       top: 0px;
