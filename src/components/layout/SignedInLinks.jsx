@@ -5,13 +5,13 @@ import Avatar from "./Avatar";
 function SignedInLinks() {
   return (
     <>
-      <NavLink className="nav-link" to="/movies">
+      <NavLink className="nav-link" to="/watchlist">
         Watchlist
       </NavLink>
-      <NavLink className="nav-link" to="/tvshows">
+      <NavLink className="nav-link" to="/diary">
         Diary
       </NavLink>
-      <NavLink className="nav-link" to="/people">
+      <NavLink className="nav-link" to="/lib">
         Library
       </NavLink>
       <Avatar />

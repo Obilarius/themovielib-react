@@ -5,7 +5,12 @@ import SignedInLinks from "./SignedInLinks";
 // import SignedOutLinks from "./SignedOutLinks";
 import Searchfield from "./Searchfield";
 
-const MainNavbar = () => {
+const Navbar = () => {
+  const handleClickHamburger = () => {
+    const linkList = document.querySelector(".navbar-wrapper .linklist");
+    linkList.classList.toggle("open");
+  };
+
   return (
     <div className="navbar-wrapper">
       <nav className="navbar">
@@ -13,18 +18,8 @@ const MainNavbar = () => {
           <Link className="brand" to="/">
             TheMovieLib
           </Link>
-          <div className="linklist">
-            {/* <NavLink className="nav-link" to="/movies">
-              Movies
-            </NavLink>
-            <NavLink className="nav-link" to="/tvshows">
-              TV-Shows
-            </NavLink>
-            <NavLink className="nav-link" to="/people">
-              People
-            </NavLink> */}
-            {/* <SignedOutLinks /> */}
-            <SignedInLinks />
+          <div className="burger" onClick={handleClickHamburger}>
+            <i className="fad fa-bars" />
           </div>
         </div>
       </nav>
@@ -33,8 +28,14 @@ const MainNavbar = () => {
           <Searchfield />
         </div>
       </div>
+      <div className="linklist">
+        <div className="container">
+          {/* <SignedOutLinks /> */}
+          <SignedInLinks />
+        </div>
+      </div>
     </div>
   );
 };
 
-export default MainNavbar;
+export default Navbar;
