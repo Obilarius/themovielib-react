@@ -23,11 +23,9 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-      <div className="searchfield">
-        <div className="container ">
-          <Searchfield />
-        </div>
-      </div>
+
+      <Searchfield />
+
       <div className="linklist">
         <div className="container">
           {/* <SignedOutLinks /> */}

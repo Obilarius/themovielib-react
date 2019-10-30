@@ -27,10 +27,12 @@ class Library extends Component {
     }
 
     return (
-      <div className="container library">
-        {movies.results.map(movie => {
-          return <MovieCard type="Poster" movie={movie} key={movie.id} />;
-        })}
+      <div className="container">
+        <div className="library">
+          {movies.results.map(movie => {
+            return <MovieCard type="Poster" movie={movie} key={movie.id} />;
+          })}
+        </div>
       </div>
     );
   }

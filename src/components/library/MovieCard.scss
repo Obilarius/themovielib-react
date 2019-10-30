@@ -1,5 +1,49 @@
+@import "../../main.vars.scss";
+
 .movie-card {
-  width: 200px;
-  height: 300px;
+  width: 100px;
+  height: 150px;
   background-size: cover;
+  position: relative;
+  // overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
+  // &:hover,
+  &.active {
+    img {
+      filter: blur(2px);
+    }
+
+    .tmdb-percent {
+      position: absolute;
+      top: 5%;
+      left: 5%;
+      width: 30%;
+      z-index: 10;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      // background: rgba(255, 255, 255, 0.3);
+      background: rgba(0, 0, 0, 0.5);
+      font-size: 0.8rem;
+      padding: 5%;
+      text-align: center;
+      color: $lightColor;
+
+      .inner {
+        position: absolute;
+        bottom: 5%;
+        width: 90%;
+      }
+    }
+  }
 }

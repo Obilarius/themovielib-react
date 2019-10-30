@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 
 import React, { Component } from "react";
+import "./Searchfield.scss";
 
 class Searchfield extends Component {
   state = {
@@ -24,16 +25,18 @@ class Searchfield extends Component {
     const { searchText } = this.state;
 
     return (
-      <>
-        <i className="fad fa-search" />
-        <input
-          type="text"
-          value={searchText}
-          onChange={this.handleChange}
-          placeholder="Search..."
-        />
-        <i className="far fa-times" onClick={this.handleDelete} />
-      </>
+      <div className="searchfield">
+        <div className="container ">
+          <i className="fad fa-search" />
+          <input
+            type="text"
+            value={searchText}
+            onChange={this.handleChange}
+            placeholder="Search..."
+          />
+          <i className="far fa-times" onClick={this.handleDelete} />
+        </div>
+      </div>
     );
   }
 }
