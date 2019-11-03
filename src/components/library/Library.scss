@@ -1,7 +1,61 @@
+@import "../../main.vars.scss";
+
 .library {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  row-gap: 5px;
-  justify-items: center;
-  margin-top: 10px;
+  min-height: 100%;
+
+  button {
+    padding: 0.5rem 1rem;
+    border: 0;
+    background: $primaryColor;
+    width: 100%;
+    margin: 1rem 0 1rem 0;
+    display: flex;
+    justify-content: center;
+
+    * {
+      line-height: 1.5rem;
+    }
+
+    i:first-child {
+      margin-right: 1rem;
+    }
+
+    i:last-child {
+      margin-left: 1rem;
+    }
+  }
+
+  .poster-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 5px;
+    justify-items: center;
+    justify-content: space-between;
+    margin: 10px 0;
+  }
+
+  // Medium devices (tablets, 768px and up)
+  @media (min-width: 768px) {
+    .poster-grid {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 200px));
+    }
+
+    button {
+      width: 250px;
+    }
+  }
+
+  // Large devices (desktops, 992px and up)
+  @media (min-width: 992px) {
+    .poster-grid {
+      grid-template-columns: repeat(auto-fill, 200px);
+    }
+  }
+
+  // Extra large devices (large desktops, 1200px and up)
+  @media (min-width: 1200px) {
+    .poster-grid {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+  }
 }

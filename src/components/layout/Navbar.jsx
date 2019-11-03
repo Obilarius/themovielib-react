@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./Navbar.scss";
 import SignedInLinks from "./SignedInLinks";
 // import SignedOutLinks from "./SignedOutLinks";
-import Searchfield from "./Searchfield";
+// import Searchfield from "./Searchfield";
 
 const Navbar = () => {
   const handleClickHamburger = () => {
@@ -16,6 +16,7 @@ const Navbar = () => {
       <nav className="navbar">
         <div className="container">
           <Link className="brand" to="/">
+            <i className="fad fa-film" />
             TheMovieLib
           </Link>
           <div className="burger" onClick={handleClickHamburger}>
@@ -24,7 +25,7 @@ const Navbar = () => {
         </div>
       </nav>
 
-      <Searchfield />
+      {/* <Searchfield /> */}
 
       <div className="linklist">
         <div className="container">

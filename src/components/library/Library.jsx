@@ -1,39 +1,102 @@
 import React, { Component } from "react";
 import axios from "axios";
 import MovieCard from "./MovieCard";
+import Searchfield from "../layout/Searchfield";
+import Loader from "../layout/Loader";
 import "./Library.scss";
+import GoToTop from "../layout/GoToTop";
 
 class Library extends Component {
   state = {
-    movies: [{}]
+    searchTerm: "",
+    movies: [],
+    loadMore: false,
+    page: 1,
+    totalPages: null
   };
 
   componentDidMount() {
-    const API_LINK_DISCOVER =
-      "https://api.themoviedb.org/3/discover/movie?api_key=285a3801961b83d5dedcb2b3ec252cdf&language=en-US&sort_by=popularity.desc&include_video=false&page=1";
-    axios.get(API_LINK_DISCOVER).then(res => {
-      const movies = res.data;
-      this.setState({
-        movies
-      });
-    });
+    document.addEventListener("scroll", this.handleScroll);
+    this.loadMovies(1);
   }
 
-  render() {
-    const { movies } = this.state;
+  handleScroll = () => {
+    const { loadMore, page } = this.state;
+    const offset = 1.2;
+    const wrappedElement = document.getElementById("library");
+    if (wrappedElement === null) return;
 
-    if (movies.results == null) {
-      return <div>Loading...</div>;
+    const bottom =
+      window.innerHeight * offset >=
+      wrappedElement.getBoundingClientRect().bottom;
+    if (bottom && !loadMore) {
+      this.setState({ loadMore: true, page: page + 1 });
+      this.loadMovies(page + 1);
+    }
+  };
+
+  loadMovies = page => {
+    const { movies, totalPages } = this.state;
+
+    if (totalPages != null && totalPages < page) return;
+
+    const API_LINK_DISCOVER = `http://192.168.1.190:4000/lib?page=${page}`;
+    axios.get(API_LINK_DISCOVER).then(res => {
+      const newMovies = res.data.results;
+      const newTotalPages = res.data.total_pages;
+      this.setState({
+        movies: [...movies, ...newMovies],
+        totalPages: newTotalPages,
+        loadMore: false
+      });
+    });
+  };
+
+  handleSearchTermChange = e => {
+    this.setState({ searchTerm: e.target.value });
+  };
+
+  handleSearchTermDelete = () => {
+    this.setState({ searchTerm: "" });
+  };
+
+  render() {
+    const { movies, searchTerm } = this.state;
+
+    let movieList = <Loader />;
+
+    if (movies.lenght !== 0) {
+      movieList = (
+        <div className="poster-grid">
+          {movies.map(movie => {
+            return (
+              // eslint-disable-next-line no-underscore-dangle
+              <MovieCard type="Poster" movie={movie} key={movie._id} />
+            );
+          })}
+        </div>
+      );
     }
 
     return (
-      <div className="container">
-        <div className="library">
-          {movies.results.map(movie => {
-            return <MovieCard type="Poster" movie={movie} key={movie.id} />;
-          })}
+      <>
+        <Searchfield
+          handleChange={this.handleSearchTermChange}
+          handleDelete={this.handleSearchTermDelete}
+          value={searchTerm}
+        />
+        <GoToTop />
+        <div className="container">
+          <div className="library" id="library">
+            <button type="button">
+              <i className="fad fa-plus" />
+              <span>New Movie</span>
+              <i className="fad fa-film fa-lg" />
+            </button>
+            {movieList}
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 }

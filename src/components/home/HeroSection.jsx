@@ -1,12 +1,10 @@
+/* eslint-disable global-require */
 import React, { Component } from "react";
 // import axios from "./node_modules/axios";
-import "./HeroSection.css";
+import "./HeroSection.scss";
+// import backdrop from "../../assets/backdrops/fI4IM5xb94b3FWYpeMfY7orB3Gn.jpg";
 
 class HeroSection extends Component {
-  state = {
-    movies: []
-  };
-
   componentDidMount = () => {
     // axios
     //   .get("http://localhost:4000/tmdb/", {
@@ -24,28 +22,25 @@ class HeroSection extends Component {
   };
 
   render() {
-    // const { movies } = this.state;
     // const img_url = movies[0] && "https://image.tmdb.org/t/p/w1280" + movies[0].backdrop_path;
-    const img_url = "https://picsum.photos/1280/720";
+    // const backdrop = require("img/backdrops/fI4IM5xb94b3FWYpeMfY7orB3Gn.jpg");
+
+    const heroIndex = Math.floor(Math.random() * 4) + 1;
+    console.log(heroIndex);
 
     return (
-      <div
-        className="jumbotron jumbotron-fluid tmlib-bg-info text-white text-center"
-        style={{ padding: "0px" }}
-      >
-        <div className="container">
-          <div
-            className="hero-img"
-            style={{
-              backgroundImage: "url(" + img_url + ")"
-            }}
-          ></div>
-          <div className="hero-text">
-            <h1 className="display-1">Placeholder</h1>
-            <p className="lead">A guiding light for the less enlightened...</p>
-          </div>
+      <section className="hero">
+        <div
+          className="hero-img"
+          style={{
+            backgroundImage: `url(./img/backdrops/${heroIndex}.jpg)`
+          }}
+        />
+        <div className="hero-text">
+          <h1 className="header">TheMovieLib</h1>
+          <p className="lead">A guiding light for the less enlightened...</p>
         </div>
-      </div>
+      </section>
     );
   }
 }

@@ -16,6 +16,12 @@
         font-weight: bold;
         margin: auto 0;
         z-index: 2;
+        display: flex;
+
+        i {
+          line-height: inherit;
+          margin-right: 0.5rem;
+        }
       }
 
       .burger {

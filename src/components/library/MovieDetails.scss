@@ -1,0 +1,43 @@
+@import "../../main.vars.scss";
+
+.movie-details {
+  color: white;
+
+  .backdrop {
+    height: 200px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+  }
+
+  .movie-info {
+    display: flex;
+
+    img.poster {
+      position: relative;
+      top: -50px;
+      height: 200px;
+      box-shadow: 0 0 15px 2px black;
+    }
+
+    > div {
+      .title {
+        font-size: 2em;
+        display: inline-block;
+      }
+      .realese {
+        display: inline-block;
+      }
+    }
+  }
+
+  // #########################
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    grid-template-rows: 500px 1fr;
+    grid-template-areas: "poster title" "content content";
+  }
+}
