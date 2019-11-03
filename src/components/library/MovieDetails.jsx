@@ -30,8 +30,7 @@ class MovieDetails extends Component {
 
   render() {
     const { movie } = this.state;
-    // if (movie === null) return <Loader />;
-    return <Loader />;
+    if (movie === null) return <Loader />;
 
     const mediumDevice = window.matchMedia("(min-width: 768px)");
     let backdrop = "";
