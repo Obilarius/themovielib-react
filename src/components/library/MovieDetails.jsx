@@ -23,13 +23,15 @@ class MovieDetails extends Component {
         this.setState({ movie: res.data });
       })
       .catch(error => {
+        // eslint-disable-next-line no-console
         console.log(error);
       });
   };
 
   render() {
     const { movie } = this.state;
-    if (movie === null) return <Loader />;
+    // if (movie === null) return <Loader />;
+    return <Loader />;
 
     const mediumDevice = window.matchMedia("(min-width: 768px)");
     let backdrop = "";
@@ -58,7 +60,9 @@ class MovieDetails extends Component {
             <div className="title-wrapper">
               <span className="title">{movie.title}</span>
               <span className="release">{releaseYear}</span>
-              {/* <p>{movie.overview}</p> */}
+            </div>
+            <div className="content">
+              <p className="overview">{movie.overview}</p>
             </div>
           </div>
         </div>

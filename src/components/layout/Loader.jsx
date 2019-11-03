@@ -2,9 +2,13 @@ import React from "react";
 
 const Loader = () => {
   const loaderStyle = {
-    width: "100%",
-    display: "grid",
-    justifyContent: "center"
+    // width: "100%",
+    // display: "grid",
+    // justifyContent: "center"
+    position: "fixed",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)"
   };
 
   return (

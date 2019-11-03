@@ -12,7 +12,12 @@
   }
 
   .movie-info {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      "poster title"
+      "content content";
 
     img.poster {
       position: relative;
@@ -21,23 +26,29 @@
       box-shadow: 0 0 15px 2px black;
     }
 
-    > div {
+    .title-wrapper {
+      padding: 1em;
+
       .title {
-        font-size: 2em;
+        font-size: 1.2em;
+        font-weight: bold;
+        line-height: 1.2em;
         display: inline-block;
+        margin-right: 0.5em;
+        margin-bottom: 0.2em;
       }
       .realese {
         display: inline-block;
       }
     }
-  }
 
-  // #########################
+    .content {
+      grid-area: content;
+      font-size: 0.8em;
+      line-height: 1em;
 
-  .grid-container {
-    display: grid;
-    grid-template-columns: 150px 1fr;
-    grid-template-rows: 500px 1fr;
-    grid-template-areas: "poster title" "content content";
+      .overview {
+      }
+    }
   }
 }
