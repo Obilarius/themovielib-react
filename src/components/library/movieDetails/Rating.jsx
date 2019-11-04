@@ -1,7 +1,7 @@
 import React from "react";
-import CircularProgressbar from "../../layout/CircularProgressbar";
-// import StarRating from "./StarRating";
 import StarRating from "react-rating";
+import PropTypes from "prop-types";
+import CircularProgressbar from "../../layout/CircularProgressbar";
 
 const Rating = props => {
   const { ownRating, tmdbRating } = props;
@@ -45,6 +45,11 @@ const Rating = props => {
       <div style={labelStyle}>Your Rating</div>
     </div>
   );
+};
+
+Rating.propTypes = {
+  ownRating: PropTypes.number.isRequired,
+  tmdbRating: PropTypes.number.isRequired
 };
 
 export default Rating;

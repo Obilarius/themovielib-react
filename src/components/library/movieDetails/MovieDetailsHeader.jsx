@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./MovieDetailsHeader.scss";
 import Rating from "./Rating";
 
@@ -33,8 +34,6 @@ const MovieDetailsHeader = props => {
   }
   const backdropStyle = { backgroundImage: backdrop };
 
-  console.log(movie);
-
   return (
     <section className="movie-details-header">
       <div className="backdrop" style={backdropStyle} />
@@ -50,6 +49,15 @@ const MovieDetailsHeader = props => {
       </div>
     </section>
   );
+};
+
+MovieDetailsHeader.propTypes = {
+  movie: PropTypes.shape({
+    backdrop_path: PropTypes.string.isRequired,
+    poster_path: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    vote_average: PropTypes.number.isRequired
+  }).isRequired
 };
 
 export default MovieDetailsHeader;
