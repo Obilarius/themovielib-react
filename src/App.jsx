@@ -4,7 +4,7 @@ import Navbar from "./components/layout/Navbar";
 import Home from "./components/home/Home";
 // import PopularMovies from "./components/movies/PopularMovies";
 import Library from "./components/library/Library";
-import MovieDetails from "./components/library/MovieDetails";
+import MovieDetails from "./components/library/movieDetails/MovieDetails";
 
 function App() {
   return (
