@@ -4,15 +4,13 @@ import PropTypes from "prop-types";
 const StarRating = props => {
   const { rating } = props;
 
-  const stars = {
-    1: <i className="fas fa-star" />,
-    2: <i className="fas fa-star" />,
-    3: <i className="fas fa-star" />,
-    4: <i className="fas fa-star" />,
-    5: <i className="fas fa-star" />
-  };
+  let stars;
 
-  return <div>{rating}</div>;
+  for (let i = 0; i < Math.floor(rating); i + 1) {
+    stars += <i className="fas fa-star full" />;
+  }
+
+  return <div>Stars</div>;
 };
 
 StarRating.propTypes = {

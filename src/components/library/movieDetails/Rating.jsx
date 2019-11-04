@@ -1,6 +1,7 @@
 import React from "react";
 import CircularProgressbar from "../../layout/CircularProgressbar";
-import StarRating from "./StarRating";
+// import StarRating from "./StarRating";
+import StarRating from "react-rating";
 
 const Rating = props => {
   const { ownRating, tmdbRating } = props;
@@ -11,16 +12,20 @@ const Rating = props => {
     display: "grid",
     gridTemplateColumns: "auto auto",
     gridTemplateRows: "auto auto",
-    alignItems: "center"
+    alignItems: "center",
+    justifyItems: "center"
   };
   const tmdbStyle = {
-    width: "40px",
-    marginRight: "10px"
+    width: "40px"
   };
-  const ownStyle = {};
+  const ownStyle = {
+    color: "#FFB33A",
+    fontSize: "1.2em"
+  };
   const labelStyle = {
     fontSize: "0.6em",
-    marginTop: "3px"
+    marginTop: "3px",
+    color: "rgba(255,255,255,0.7)"
   };
 
   return (
@@ -29,7 +34,12 @@ const Rating = props => {
         <CircularProgressbar percentage={tmdbRating * 10} />
       </div>
       <div className="own-rating" style={ownStyle}>
-        <StarRating rating={ownRating} />
+        <StarRating
+          initialRating={ownRating}
+          fractions="2"
+          emptySymbol="fal fa-star"
+          fullSymbol="fas fa-star"
+        />
       </div>
       <div style={labelStyle}>TMDB Rating</div>
       <div style={labelStyle}>Your Rating</div>
