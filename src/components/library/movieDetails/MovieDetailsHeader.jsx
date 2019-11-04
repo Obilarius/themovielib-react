@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./MovieDetailsHeader.scss";
 import Rating from "./Rating";
+import Genre from "./Genre";
 
 //     <section className="movie-details-header">
 //       <div className="backdrop" style={backdropStyle} />
@@ -41,10 +42,8 @@ const MovieDetailsHeader = props => {
         <img src={poster} alt="" className="poster" />
         <div>
           <div className="title-row">{movie.title}</div>
-          <div className="ratings-row">
-            <Rating tmdbRating={movie.vote_average} ownRating="4.5" />
-          </div>
-          <div className="genre-row">Genre</div>
+          <Rating tmdbRating={movie.vote_average} ownRating={4.5} />
+          <Genre genres={movie.genres} />
         </div>
       </div>
     </section>
