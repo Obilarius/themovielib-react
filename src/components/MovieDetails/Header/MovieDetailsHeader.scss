@@ -18,10 +18,11 @@ section.movie-details-header {
       box-shadow: 0 0 15px 2px black;
     }
 
-    > div {
+    >div {
       margin-left: 10px;
+      width: 100%;
 
-      > div {
+      >div {
         margin-top: 10px;
       }
 

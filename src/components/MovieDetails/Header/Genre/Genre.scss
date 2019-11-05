@@ -1,0 +1,16 @@
+@import "../../../../CSS/main.vars.scss";
+
+.genre-wrapper {
+  float: left;
+  text-align: justify;
+
+  >div {
+    display: inline-block;
+    font-size: 0.5em;
+    padding: 5px 10px;
+    background: #51C8A4;
+    color: #193d31;
+    border-radius: 12px;
+    margin-right: 5px;
+  }
+}
