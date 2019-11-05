@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./MovieDetailsHeader.scss";
-import Rating from "./Rating";
-import Genre from "./Genre";
+import Rating from "./Rating/Rating";
+import Genre from "./Genre/Genre";
 
 //     <section className="movie-details-header">
 //       <div className="backdrop" style={backdropStyle} />

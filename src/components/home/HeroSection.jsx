@@ -26,7 +26,6 @@ class HeroSection extends Component {
     // const backdrop = require("img/backdrops/fI4IM5xb94b3FWYpeMfY7orB3Gn.jpg");
 
     const heroIndex = Math.floor(Math.random() * 4) + 1;
-    console.log(heroIndex);
 
     return (
       <section className="hero">

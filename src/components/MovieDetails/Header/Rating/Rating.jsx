@@ -1,7 +1,7 @@
 import React from "react";
 import StarRating from "react-rating";
 import PropTypes from "prop-types";
-import CircularProgressbar from "../../layout/CircularProgressbar";
+import CircularProgressbar from "../../../../utils/CircularProgressbar/CircularProgressbar";
 
 const Rating = props => {
   const { ownRating, tmdbRating } = props;

@@ -1,14 +1,16 @@
-@import "../../main.vars.scss";
+@import "../../CSS/main.vars.scss";
 
 @mixin aspect-ratio($width, $height) {
   position: relative;
+
   &:before {
     display: block;
     content: "";
     width: 100%;
     padding-top: ($height / $width) * 100%;
   }
-  > .content {
+
+  >.content {
     position: absolute;
     top: 0;
     left: 0;
@@ -61,6 +63,7 @@
       .title {
         display: block;
       }
+
       .date {
         display: block;
         font-size: 0.8em;
@@ -81,12 +84,10 @@
   }
 
   // Large devices (desktops, 992px and up)
-  @media (min-width: 992px) {
-  }
+  @media (min-width: 992px) {}
 
   // Extra large devices (large desktops, 1200px and up)
-  @media (min-width: 1200px) {
-  }
+  @media (min-width: 1200px) {}
 
   &:hover {
     img {

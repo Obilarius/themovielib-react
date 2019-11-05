@@ -1,4 +1,4 @@
-@import "../../main.vars.scss";
+@import "../../CSS/main.vars.scss";
 
 section.hero {
   width: 100%;
@@ -44,6 +44,7 @@ section.hero {
     .hero-text h1.header {
       font-weight: normal;
     }
+
     .hero-text p.lead {
       font-size: 0.6em;
     }

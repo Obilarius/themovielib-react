@@ -1,4 +1,4 @@
-@import "../../main.vars.scss";
+@import "../../CSS/main.vars.scss";
 
 .navbar-wrapper {
   nav.navbar {
@@ -79,6 +79,7 @@
         font-size: 1.4rem;
       }
     }
+
     .linklist {
       position: absolute;
       top: 0px;

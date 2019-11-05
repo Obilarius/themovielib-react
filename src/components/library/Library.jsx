@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import axios from "axios";
 import MovieCard from "./MovieCard";
 import Searchfield from "../layout/Searchfield";
-import Loader from "../layout/Loader";
+import Loader from "../../utils/Loader/Loader";
 import "./Library.scss";
-import GoToTop from "../layout/GoToTop";
+import GoToTop from "../../utils/GoToTop/GoToTop";
 
 class Library extends Component {
   state = {
@@ -40,8 +40,9 @@ class Library extends Component {
 
     if (totalPages != null && totalPages < page) return;
 
-    const API_LINK_DISCOVER = `http://192.168.1.190:4000/lib?page=${page}`;
-    axios.get(API_LINK_DISCOVER).then(res => {
+    const API_LINK = `http://localhost:4000/lib?page=${page}`;
+
+    axios.get(API_LINK).then(res => {
       const newMovies = res.data.results;
       const newTotalPages = res.data.total_pages;
       this.setState({

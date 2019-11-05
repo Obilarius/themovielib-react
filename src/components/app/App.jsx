@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Navbar from "./components/layout/Navbar";
-import Home from "./components/home/Home";
+import Navbar from "../layout/Navbar";
+import Home from "../home/Home";
 // import PopularMovies from "./components/movies/PopularMovies";
-import Library from "./components/library/Library";
-import MovieDetails from "./components/library/movieDetails/MovieDetails";
+import Library from "../library/Library";
+import MovieDetails from "../MovieDetails/MovieDetails";
 
 function App() {
   return (

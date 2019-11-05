@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Axios from "axios";
-import Loader from "../../layout/Loader";
+import Loader from "../../utils/Loader/Loader";
 import "./MovieDetails.scss";
-import MovieDetailsHeader from "./MovieDetailsHeader";
+import MovieDetailsHeader from "./Header/MovieDetailsHeader";
 
 class MovieDetails extends Component {
   state = {
@@ -14,7 +14,7 @@ class MovieDetails extends Component {
     // eslint-disable-next-line react/destructuring-assignment
     const { id } = this.props.match.params;
 
-    Axios.get("http://192.168.1.190:4000/tmdb/", {
+    Axios.get(`http://localhost:4000/tmdb/`, {
       params: {
         endpoint: `movie/${id}`,
         param: ["language=de-de"]

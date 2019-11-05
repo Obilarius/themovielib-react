@@ -17,7 +17,7 @@ const Navbar = () => {
         <div className="container">
           <Link className="brand" to="/">
             <i className="fad fa-film" />
-            TheMovieLib
+            Brand
           </Link>
           <div className="burger" onClick={handleClickHamburger}>
             <i className="fad fa-bars" />

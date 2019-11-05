@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import CircularProgressbar from "../layout/CircularProgressbar";
+import CircularProgressbar from "../../utils/CircularProgressbar/CircularProgressbar";
 import "./MovieCard.scss";
 
 function MovieCard(props) {
