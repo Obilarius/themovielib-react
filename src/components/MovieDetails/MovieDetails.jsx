@@ -5,6 +5,7 @@ import Loader from "../../utils/Loader/Loader";
 import "./MovieDetails.scss";
 import MovieDetailsHeader from "./Header/MovieDetailsHeader";
 import Synopsis from "./Synopsis/Synopsis";
+import TabNav from "./TabNav/TabNav";
 
 class MovieDetails extends Component {
   state = {
@@ -39,6 +40,7 @@ class MovieDetails extends Component {
     return (
       <div className="movie-details">
         <MovieDetailsHeader movie={movie} />
+        <TabNav />
         <Synopsis text={movie.overview} />
       </div>
     );

@@ -3,13 +3,13 @@
 
 section.movie-details-header {
   position: relative;
-  margin-bottom: -30px;
 
   .movie-information-row {
     display: flex;
     align-items: flex-end;
     position: relative;
-    top: -50px;
+    padding-top: 150px;
+    // top: -50px;
 
     .poster {
       width: 35%;

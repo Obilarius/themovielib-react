@@ -2,9 +2,12 @@
 
 .backdrop-wrapper {
   overflow: hidden;
+  position: absolute;
+  height: 200px;
+  width: 100%;
 
   .backdrop {
-    height: 200px;
+    height: 100%;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -16,8 +19,8 @@
     background:
       linear-gradient(0deg,
         $darkerColor 1%,
-        rgba(0, 0, 0, 0) 40%);
-    height: 200px;
+        rgba(0, 0, 0, 0) 30%);
+    height: 100%;
     width: 100%;
     top: 0px;
     clip-path: polygon(0 70%, 100% 90%, 100% 100%, 0% 100%);
