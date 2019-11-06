@@ -1,0 +1,30 @@
+@import "../../../../CSS/main.vars.scss";
+
+.backdrop-wrapper {
+  overflow: hidden;
+
+  .backdrop {
+    height: 200px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .overlay,
+  .border-top {
+    position: absolute;
+    background:
+      linear-gradient(0deg,
+        $darkerColor 1%,
+        rgba(0, 0, 0, 0) 40%);
+    height: 200px;
+    width: 100%;
+    top: 0px;
+    clip-path: polygon(0 70%, 100% 90%, 100% 100%, 0% 100%);
+  }
+
+  .border-top {
+    background: $secondaryColor;
+    clip-path: polygon(0 67%, 100% 87%, 100% 90%, 0% 70%);
+  }
+}

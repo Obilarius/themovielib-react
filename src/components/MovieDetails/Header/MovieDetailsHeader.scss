@@ -1,21 +1,9 @@
+@import "../../../CSS/main.vars.scss";
+
+
 section.movie-details-header {
   position: relative;
-
-  .backdrop {
-    height: 200px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-
-  .overlay {
-    position: absolute;
-    background: rgba(0, 0, 0, 0.5);
-    height: 200px;
-    width: 100%;
-    top: 0px;
-    clip-path: polygon(0 70%, 100% 90%, 100% 100%, 0% 100%);
-  }
+  margin-bottom: -30px;
 
   .movie-information-row {
     display: flex;
@@ -27,8 +15,6 @@ section.movie-details-header {
       width: 35%;
       box-shadow: 0 0 15px 2px black;
     }
-
-
 
     >div {
       margin-left: 10px;

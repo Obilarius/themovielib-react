@@ -40,7 +40,7 @@ class Library extends Component {
 
     if (totalPages != null && totalPages < page) return;
 
-    const API_LINK = `http://localhost:4000/lib?page=${page}`;
+    const API_LINK = `http://172.29.227.83:4000/lib?page=${page}`;
 
     axios.get(API_LINK).then(res => {
       const newMovies = res.data.results;

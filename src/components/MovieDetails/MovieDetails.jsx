@@ -4,6 +4,7 @@ import Axios from "axios";
 import Loader from "../../utils/Loader/Loader";
 import "./MovieDetails.scss";
 import MovieDetailsHeader from "./Header/MovieDetailsHeader";
+import Synopsis from "./Synopsis/Synopsis";
 
 class MovieDetails extends Component {
   state = {
@@ -14,7 +15,7 @@ class MovieDetails extends Component {
     // eslint-disable-next-line react/destructuring-assignment
     const { id } = this.props.match.params;
 
-    Axios.get(`http://localhost:4000/tmdb/`, {
+    Axios.get(`http://172.29.227.83:4000/tmdb/`, {
       params: {
         endpoint: `movie/${id}`,
         param: ["language=de-de"]
@@ -38,6 +39,7 @@ class MovieDetails extends Component {
     return (
       <div className="movie-details">
         <MovieDetailsHeader movie={movie} />
+        <Synopsis text={movie.overview} />
       </div>
     );
   }

@@ -3,22 +3,7 @@ import PropTypes from "prop-types";
 import "./MovieDetailsHeader.scss";
 import Rating from "./Rating/Rating";
 import Genre from "./Genre/Genre";
-
-//     <section className="movie-details-header">
-//       <div className="backdrop" style={backdropStyle} />
-//       {/* <div className="container">
-//         <div className="movie-info">
-//           <img className="poster" src={poster} alt="{movie.title}" />
-//           <div className="title-wrapper">
-//             <span className="title">{movie.title}</span>
-//             <span className="release">{releaseYear}</span>
-//           </div>
-//           <div className="content">
-//             <p className="overview">{movie.overview}</p>
-//           </div>
-//         </div>
-//       </div> */}
-//     </section>
+import Backdrop from "./Backdrop/Backdrop";
 
 const MovieDetailsHeader = props => {
   const { movie } = props;
@@ -37,12 +22,10 @@ const MovieDetailsHeader = props => {
   };
 
   const urls = getUrls();
-  const backdropStyle = { backgroundImage: `url(${urls.backdrop})` };
 
   return (
     <section className="movie-details-header">
-      <div className="backdrop" style={backdropStyle} />
-      <div className="overlay" />
+      <Backdrop url={urls.backdrop} />
       <div className="container movie-information-row">
         <img src={urls.poster} alt="" className="poster" />
         <div>
