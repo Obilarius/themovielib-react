@@ -4,12 +4,13 @@ import Axios from "axios";
 import Loader from "../../utils/Loader/Loader";
 import "./MovieDetails.scss";
 import MovieDetailsHeader from "./Header/MovieDetailsHeader";
-import Synopsis from "./Synopsis/Synopsis";
+import Synopsis from "./TabContent/Synopsis/Synopsis";
 import TabNav from "./TabNav/TabNav";
 
 class MovieDetails extends Component {
   state = {
-    movie: null
+    movie: null,
+    activeTab: 0
   };
 
   componentDidMount = () => {
@@ -31,17 +32,34 @@ class MovieDetails extends Component {
       });
   };
 
+  changeTabHandler = index => {
+    this.setState({ activeTab: index });
+  };
+
+  getTabContent = () => {
+    const { activeTab, movie } = this.state;
+    switch (activeTab) {
+      case 1:
+        return <div>Tab1</div>;
+      case 2:
+        return <div>Tab2</div>;
+      default:
+        return <Synopsis text={movie.overview} />;
+    }
+  };
+
   render() {
-    const { movie } = this.state;
+    const { movie, activeTab } = this.state;
     if (movie === null) return <Loader />;
 
     // const releaseYear = `(${movie.release_date.split("-")[0]})`;
+    const tabContent = this.getTabContent();
 
     return (
       <div className="movie-details">
         <MovieDetailsHeader movie={movie} />
-        <TabNav />
-        <Synopsis text={movie.overview} />
+        <TabNav changeTab={this.changeTabHandler} activeTab={activeTab} />
+        {tabContent}
       </div>
     );
   }

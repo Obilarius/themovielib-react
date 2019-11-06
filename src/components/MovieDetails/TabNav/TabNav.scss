@@ -1,0 +1,41 @@
+@import "../../../CSS/main.vars.scss";
+
+nav.tab-nav {
+  background: $primaryColor;
+  margin: 20px 0;
+
+  .container {
+    display: flex;
+    justify-content: center;
+
+    .tab-item {
+      width: calc(100% / 3);
+      text-align: center;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      text-transform: lowercase;
+      color: black;
+      cursor: pointer;
+      position: relative;
+
+      &:hover {
+        background: darken($primaryColor, 5%);
+      }
+
+      &.active {
+        background: darken($primaryColor, 5%);
+
+        &:after {
+          content: " ";
+          width: 20px;
+          height: 10px;
+          background: $darkerColor;
+          position: absolute;
+          right: calc(50% - 10px);
+          bottom: 0px;
+          clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+      }
+    }
+  }
+}
