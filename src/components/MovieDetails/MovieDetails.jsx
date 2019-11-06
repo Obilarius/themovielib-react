@@ -6,11 +6,12 @@ import "./MovieDetails.scss";
 import MovieDetailsHeader from "./Header/MovieDetailsHeader";
 import Synopsis from "./TabContent/Synopsis/Synopsis";
 import TabNav from "./TabNav/TabNav";
+import Cast from "./TabContent/Cast/Cast";
 
 class MovieDetails extends Component {
   state = {
     movie: null,
-    activeTab: 0
+    activeTab: 2
   };
 
   componentDidMount = () => {
@@ -42,7 +43,7 @@ class MovieDetails extends Component {
       case 1:
         return <div>Tab1</div>;
       case 2:
-        return <div>Tab2</div>;
+        return <Cast movieId={movie.id} />;
       default:
         return <Synopsis text={movie.overview} />;
     }

@@ -1,0 +1,41 @@
+@import "../../../../CSS/aspectRatio.scss";
+
+// .cast-wrapper {
+//   h2 {
+//     margin-bottom: 5px;
+//   }
+
+//   .inner {
+//     display: grid;
+//     grid-template-columns: repeat(3, 30%);
+//     width: 100%;
+//     justify-content: space-between;
+//     row-gap: 20px;
+
+
+//     .person-card {
+
+//       .img {
+//         @include aspect-ratio(1, 1);
+//         overflow: hidden;
+//         border-radius: 5px;
+//         background-size: cover;
+//         background-repeat: no-repeat;
+//         background-position: center 20%;
+//         box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.5);
+//       }
+
+//       .name-wrapper {
+//         font-size: 0.6em;
+//         text-align: center;
+//         line-height: 1.4em;
+//         margin-top: 5px;
+
+//         .name {
+//           font-weight: 600;
+//         }
+
+//       }
+//     }
+//   }
+// }

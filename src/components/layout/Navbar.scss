@@ -4,6 +4,7 @@
   nav.navbar {
     background: $primaryColor;
     position: relative;
+    z-index: 2;
 
     .container {
       display: flex;
@@ -15,7 +16,7 @@
         font-size: 1.2rem;
         font-weight: bold;
         margin: auto 0;
-        z-index: 2;
+        z-index: 3;
         display: flex;
 
         i {
