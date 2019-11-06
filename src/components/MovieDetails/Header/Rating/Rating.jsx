@@ -2,38 +2,17 @@ import React from "react";
 import StarRating from "react-rating";
 import PropTypes from "prop-types";
 import CircularProgressbar from "../../../../utils/CircularProgressbar/CircularProgressbar";
+import "./Rating.scss";
 
 const Rating = props => {
   const { ownRating, tmdbRating } = props;
 
-  // TODO: Get Own Rating from Database
-
-  const wrapperStyle = {
-    display: "grid",
-    gridTemplateColumns: "auto auto",
-    gridTemplateRows: "auto auto",
-    alignItems: "center",
-    justifyItems: "center"
-  };
-  const tmdbStyle = {
-    width: "40px"
-  };
-  const ownStyle = {
-    color: "#FFB33A",
-    fontSize: "1.2em"
-  };
-  const labelStyle = {
-    fontSize: "0.6em",
-    marginTop: "3px",
-    color: "rgba(255,255,255,0.7)"
-  };
-
   return (
-    <div className="rating-wrapper" style={wrapperStyle}>
-      <div className="tmdb-rating" style={tmdbStyle}>
+    <div className="rating-wrapper">
+      <div className="tmdb-rating">
         <CircularProgressbar percentage={tmdbRating * 10} />
       </div>
-      <div className="own-rating" style={ownStyle}>
+      <div className="own-rating">
         <StarRating
           initialRating={ownRating}
           fractions="2"
@@ -41,8 +20,8 @@ const Rating = props => {
           fullSymbol="fas fa-star"
         />
       </div>
-      <div style={labelStyle}>TMDB Rating</div>
-      <div style={labelStyle}>Your Rating</div>
+      <div className="label">User Score</div>
+      <div className="label">Your Rating</div>
     </div>
   );
 };
