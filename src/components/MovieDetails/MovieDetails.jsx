@@ -18,7 +18,7 @@ class MovieDetails extends Component {
     // eslint-disable-next-line react/destructuring-assignment
     const { id } = this.props.match.params;
 
-    Axios.get(`http://172.29.227.83:4000/tmdb/`, {
+    Axios.get(`https://themovielib-api.herokuapp.com/tmdb/`, {
       params: {
         endpoint: `movie/${id}`,
         param: ["language=de-de"]

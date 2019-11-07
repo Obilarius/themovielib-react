@@ -7,7 +7,7 @@ import "./HeroSection.scss";
 class HeroSection extends Component {
   componentDidMount = () => {
     // axios
-    //   .get("http://172.29.227.83:4000/tmdb/", {
+    //   .get("https://themovielib-api.herokuapp.com/tmdb/", {
     //     params: {
     //       endpoint: "movie/popular",
     //       param: ["language=de-de"]

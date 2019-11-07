@@ -15,7 +15,7 @@ class Cast extends Component {
     // eslint-disable-next-line react/destructuring-assignment
     const { movieId } = this.props;
 
-    Axios.get(`http://172.29.227.83:4000/tmdb/`, {
+    Axios.get(`https://themovielib-api.herokuapp.com/tmdb/`, {
       params: {
         endpoint: `movie/${movieId}/credits`,
         param: ["language=de-de"]
