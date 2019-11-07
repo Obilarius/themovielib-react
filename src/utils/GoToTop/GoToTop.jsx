@@ -1,6 +1,7 @@
 /* eslint-disable react/button-has-type */
 import React from "react";
 import PropTypes from "prop-types";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const GoToTop = props => {
   const { scrollStepInPx, delayInMs } = props;
@@ -12,8 +13,9 @@ const GoToTop = props => {
     backgroundColor: "#51C8A4",
     width: "3rem",
     height: "3rem",
-    display: "grid",
+    display: "flex",
     justifyContent: "center",
+    alignItems: "center",
     borderRadius: "50%",
     border: "0",
     zIndex: 20,
@@ -41,7 +43,7 @@ const GoToTop = props => {
 
   return (
     <div style={style} onClick={scrollToTop}>
-      <i style={arrowStyle} className="fad fa-chevron-up fa-2x" />
+      <FontAwesomeIcon icon={["fad", "chevron-up"]} size="2x" />
     </div>
   );
 };

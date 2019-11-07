@@ -11,7 +11,7 @@ import Cast from "./TabContent/Cast/Cast";
 class MovieDetails extends Component {
   state = {
     movie: null,
-    activeTab: 2
+    activeTab: 0
   };
 
   componentDidMount = () => {

@@ -1,8 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Navbar from "../layout/Navbar";
+import Navbar from "../layout/Navbar/Navbar";
 import Home from "../home/Home";
-// import PopularMovies from "./components/movies/PopularMovies";
 import Library from "../library/Library";
 import MovieDetails from "../MovieDetails/MovieDetails";
 

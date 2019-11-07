@@ -3,6 +3,7 @@
 
 import React from "react";
 import PropTypes from "prop-types";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Searchfield.scss";
 
 const Searchfield = props => {
@@ -10,14 +11,14 @@ const Searchfield = props => {
   return (
     <div className="searchfield">
       <div className="container ">
-        <i className="fad fa-search" />
+        <FontAwesomeIcon icon={["fad", "search"]} />
         <input
           type="text"
           value={value}
           onChange={handleChange}
           placeholder="Search..."
         />
-        <i className="far fa-times" onClick={handleDelete} />
+        <FontAwesomeIcon icon={["far", "times"]} onClick={handleDelete} />
       </div>
     </div>
   );

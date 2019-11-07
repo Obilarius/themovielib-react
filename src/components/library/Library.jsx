@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-import MovieCard from "./MovieCard";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import MovieCard from "./MovieCard/MovieCard";
 import Searchfield from "../layout/Searchfield";
 import Loader from "../../utils/Loader/Loader";
 import "./Library.scss";
@@ -90,9 +91,9 @@ class Library extends Component {
         <div className="container">
           <div className="library" id="library">
             <button type="button">
-              <i className="fad fa-plus" />
+              <FontAwesomeIcon icon={["fad", "plus"]} />
               <span>New Movie</span>
-              <i className="fad fa-film fa-lg" />
+              <FontAwesomeIcon icon={["fad", "film"]} size="lg" />
             </button>
             {movieList}
           </div>

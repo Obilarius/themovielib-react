@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Navbar.scss";
-import SignedInLinks from "./SignedInLinks";
+import SignedInLinks from "./LinkLists/SignedInLinks";
 // import SignedOutLinks from "./SignedOutLinks";
 // import Searchfield from "./Searchfield";
 
@@ -16,11 +17,11 @@ const Navbar = () => {
       <nav className="navbar">
         <div className="container">
           <Link className="brand" to="/">
-            <i className="fad fa-film" />
+            <FontAwesomeIcon icon={["fad", "film"]} />
             Brand
           </Link>
           <div className="burger" onClick={handleClickHamburger}>
-            <i className="fad fa-bars" />
+            <FontAwesomeIcon icon={["fad", "bars"]} />
           </div>
         </div>
       </nav>

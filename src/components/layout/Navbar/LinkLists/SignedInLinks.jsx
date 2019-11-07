@@ -1,6 +1,5 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import Avatar from "./Avatar";
 
 function SignedInLinks() {
   return (
@@ -14,7 +13,9 @@ function SignedInLinks() {
       <NavLink className="nav-link" to="/lib">
         Library
       </NavLink>
-      <Avatar />
+      <NavLink className="nav-link avatar" to="/user">
+        <div />
+      </NavLink>
     </>
   );
 }

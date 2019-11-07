@@ -1,8 +1,11 @@
+/* eslint-disable react/jsx-wrap-multilines */
 import React from "react";
 import StarRating from "react-rating";
 import PropTypes from "prop-types";
 import CircularProgressbar from "../../../../utils/CircularProgressbar/CircularProgressbar";
 import "./Rating.scss";
+import StarLight from "../../../../assets/img/stars/star-light";
+import StarSolid from "../../../../assets/img/stars/star-solid";
 
 const Rating = props => {
   const { ownRating, tmdbRating } = props;
@@ -16,8 +19,8 @@ const Rating = props => {
         <StarRating
           initialRating={ownRating}
           fractions="2"
-          emptySymbol="fal fa-star"
-          fullSymbol="fas fa-star"
+          emptySymbol={<StarLight />}
+          fullSymbol={<StarSolid />}
         />
       </div>
       <div className="label">User Score</div>

@@ -11,12 +11,12 @@
       color: black;
     }
 
-    i {
+    svg {
       margin: auto 0;
       padding-right: 1rem;
     }
 
-    i:last-child {
+    svg:last-child {
       opacity: 0;
       transition: opacity 0.3s;
     }
@@ -29,7 +29,7 @@
       color: inherit;
       outline: none;
 
-      &:focus~i:last-child {
+      &:focus~svg:last-child {
         opacity: 100;
       }
     }
