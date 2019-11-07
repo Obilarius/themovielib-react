@@ -1,30 +1,27 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "./Loader.scss";
 
 const Loader = () => {
-  const loaderWrapperStyle = {
-    position: "absolute",
-    background: "rgba(0,0,0,0.6)",
-    top: "0",
-    bottom: "0",
-    right: "0",
-    left: "0"
-  };
-  const loaderStyle = {
-    // width: "100%",
-    // display: "grid",
-    // justifyContent: "center"
-    position: "fixed",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)"
-  };
-
   return (
-    <div className="loader" style={loaderWrapperStyle}>
-      <span className="fa-stack fa-2x" style={loaderStyle}>
-        <i className="fad fa-spinner-third fa-spin fa-stack-2x fa-inverse" />
-        <i className="fad fa-popcorn fa-stack-1x fa-inverse" />
-      </span>
+    <div className="loader">
+      <div>
+        <FontAwesomeIcon
+          icon={["fad", "spinner-third"]}
+          spin
+          inverse
+          size="4x"
+          color="green"
+        />
+      </div>
+      <div>
+        <FontAwesomeIcon
+          icon={["fad", "popcorn"]}
+          inverse
+          size="2x"
+          color="green"
+        />
+      </div>
     </div>
   );
 };

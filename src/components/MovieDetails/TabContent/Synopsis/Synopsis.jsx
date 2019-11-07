@@ -5,9 +5,11 @@ import "./Synopsis.scss";
 const Synopsis = props => {
   const { text } = props;
   return (
-    <section className="container synopsis-wrapper">
-      <h2>Overview</h2>
-      <p>{text}</p>
+    <section className="container">
+      <div className="synopsis-wrapper">
+        <h2>Overview</h2>
+        <p>{text}</p>
+      </div>
     </section>
   );
 };

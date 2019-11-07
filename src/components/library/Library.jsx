@@ -62,13 +62,13 @@ class Library extends Component {
     this.setState({ searchTerm: "" });
   };
 
-  render() {
-    const { movies, searchTerm } = this.state;
+  getMovieCards = () => {
+    const { movies } = this.state;
 
-    let movieList = <Loader />;
+    let movieCards = <Loader />;
 
     if (movies.lenght !== 0) {
-      movieList = (
+      movieCards = (
         <div className="poster-grid">
           {movies.map(movie => {
             return (
@@ -79,6 +79,12 @@ class Library extends Component {
         </div>
       );
     }
+
+    return movieCards;
+  };
+
+  render() {
+    const { searchTerm } = this.state;
 
     return (
       <>
@@ -95,7 +101,7 @@ class Library extends Component {
               <span>New Movie</span>
               <FontAwesomeIcon icon={["fad", "film"]} size="lg" />
             </button>
-            {movieList}
+            {this.getMovieCards()}
           </div>
         </div>
       </>

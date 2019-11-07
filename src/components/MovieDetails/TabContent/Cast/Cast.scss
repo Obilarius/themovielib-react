@@ -6,7 +6,7 @@
     margin-bottom: 5px;
     font-weight: bold;
     font-size: 1.2em;
-    color: $primaryColor;
+    // color: $primaryColor;
   }
 
   .crew {
@@ -20,9 +20,7 @@
     justify-content: space-between;
     row-gap: 20px;
 
-
     .person-card {
-
       .img {
         @include aspect-ratio(1, 1);
         overflow: hidden;
@@ -52,7 +50,6 @@
         .name {
           font-weight: 600;
         }
-
       }
     }
   }

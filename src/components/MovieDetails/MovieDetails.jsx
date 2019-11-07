@@ -21,7 +21,10 @@ class MovieDetails extends Component {
     Axios.get(`https://themovielib-api.herokuapp.com/tmdb/`, {
       params: {
         endpoint: `movie/${id}`,
-        param: ["language=de-de"]
+        param: [
+          "language=de-de",
+          "append_to_response=videos,images,external_ids,keywords"
+        ]
       }
     })
       .then(res => {

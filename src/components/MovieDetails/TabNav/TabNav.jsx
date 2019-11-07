@@ -24,7 +24,7 @@ const TabNav = props => {
           activeTab={activeTab}
           index={2}
           changeTab={changeTab}
-          label="Cast"
+          label="Credits"
         />
       </div>
     </nav>
