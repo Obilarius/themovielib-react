@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Details.scss";
 
 const Details = props => {
@@ -11,7 +12,7 @@ const Details = props => {
         <div>Production Studios:</div>
         <div className="studios">
           {movie.production_companies.map(studio => {
-            return <div>{studio.name}</div>;
+            return <div key={studio.id}>{studio.name}</div>;
           })}
         </div>
       </>
@@ -24,7 +25,7 @@ const Details = props => {
         <div>Production Countries:</div>
         <div className="countries">
           {movie.production_countries.map(country => {
-            return <div>{country.name}</div>;
+            return <div key={country.iso_3166_1}>{country.name}</div>;
           })}
         </div>
       </>
@@ -51,14 +52,115 @@ const Details = props => {
     );
   };
 
+  const getCollection = () => {
+    if (movie.belongs_to_collection != null)
+      return (
+        <>
+          <div>Collection:</div>
+          <div className="collection">{movie.belongs_to_collection.name}</div>
+        </>
+      );
+  };
+
+  const getOriginalTitle = () => {
+    return (
+      <>
+        <div>Original Title:</div>
+        <div className="collection">{movie.original_title}</div>
+      </>
+    );
+  };
+
+  const getTrailer = () => {
+    const trailer = movie.videos.results.find(video => {
+      return video.type === "Trailer";
+    });
+
+    return (
+      <div className="trailer-wrapper">
+        <div>Trailer:</div>
+        <div className="trailer">
+          <iframe
+            title="trailer"
+            src={`https://www.youtube.com/embed/${trailer.key}`}
+            frameBorder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        </div>
+      </div>
+    );
+  };
+
+  const getLinks = () => {
+    const { external_ids } = movie;
+    return (
+      <div className="links-wrapper">
+        <div className="templates">
+          <svg width="0" height="0">
+            <radialGradient id="instaGradient" r="150%" cx="30%" cy="107%">
+              <stop stopColor="#fdf497" offset="0" />
+              <stop stopColor="#fdf497" offset="0.05" />
+              <stop stopColor="#fd5949" offset="0.45" />
+              <stop stopColor="#d6249f" offset="0.6" />
+              <stop stopColor="#285AEB" offset="0.9" />
+            </radialGradient>
+          </svg>
+        </div>
+        <div className="inner">
+          {external_ids.imdb_id && (
+            <a href={`https://www.imdb.com/title/${external_ids.imdb_id}`}>
+              <FontAwesomeIcon icon={["fab", "imdb"]} color="#F5C518" />
+            </a>
+          )}
+          {external_ids.facebook_id && (
+            <a href={`https://facebook.com/${external_ids.facebook_id}`}>
+              <FontAwesomeIcon
+                icon={["fab", "facebook-square"]}
+                color="#4267B2"
+              />
+            </a>
+          )}
+          {external_ids.instagram_id && (
+            <a href={`https://instagram.com/${external_ids.instagram_id}`}>
+              <FontAwesomeIcon
+                className="insta"
+                icon={["fab", "instagram"]}
+                color="url(#instaGradient)"
+              />
+            </a>
+          )}
+          {external_ids.twitter_id && (
+            <a href={`https://twitter.com/${external_ids.twitter_id}`}>
+              <FontAwesomeIcon
+                icon={["fab", "twitter-square"]}
+                color="#1DA1F2"
+              />
+            </a>
+          )}
+          {movie.homepage && (
+            <a href={movie.homepage}>
+              <FontAwesomeIcon icon={["far", "link"]} />
+            </a>
+          )}
+        </div>
+      </div>
+    );
+  };
+
   return (
     <div className="container">
       <div className="details-wrapper">
-        {getStudios()}
-        {getCountries()}
-        {getBudget()}
-        {getRevenue()}
-        {/* Collection, OriginalTitle, Links, Trailer */}
+        {getLinks()}
+        <div className="grid">
+          {getStudios()}
+          {getCountries()}
+          {getBudget()}
+          {getRevenue()}
+          {getCollection()}
+          {getOriginalTitle()}
+        </div>
+        {getTrailer()}
       </div>
     </div>
   );

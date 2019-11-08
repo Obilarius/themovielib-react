@@ -18,7 +18,7 @@ const Navbar = () => {
         <div className="container">
           <Link className="brand" to="/">
             <FontAwesomeIcon icon={["fad", "film"]} />
-            Brand
+            TheMovieLib
           </Link>
           <div className="burger" onClick={handleClickHamburger}>
             <FontAwesomeIcon icon={["fad", "bars"]} />
