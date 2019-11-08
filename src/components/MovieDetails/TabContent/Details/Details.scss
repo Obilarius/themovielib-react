@@ -1,0 +1,9 @@
+.movie-details .container .details-wrapper {
+  font-size: 0.7em;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 20px;
+  row-gap: 10px;
+  line-height: 1.2em;
+  margin-bottom: 20px;
+}

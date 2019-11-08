@@ -8,6 +8,7 @@ import Synopsis from "./TabContent/Synopsis/Synopsis";
 import TabNav from "./TabNav/TabNav";
 import Cast from "./TabContent/Cast/Cast";
 import ShortDetails from "./ShortDetails/ShortDetails";
+import Details from "./TabContent/Details/Details";
 
 class MovieDetails extends Component {
   state = {
@@ -45,7 +46,7 @@ class MovieDetails extends Component {
     const { activeTab, movie } = this.state;
     switch (activeTab) {
       case 1:
-        return <div>Tab1</div>;
+        return <Details movie={movie} />;
       case 2:
         return <Cast movieId={movie.id} />;
       default:
