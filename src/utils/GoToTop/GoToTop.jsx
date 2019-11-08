@@ -22,13 +22,7 @@ const GoToTop = props => {
     cursor: "pointer"
   };
 
-  const arrowStyle = {
-    lineHeight: "3rem"
-  };
-
   let intervalId = 0;
-  // const scrollStepInPx = 50;
-  // const delayInMs = 16;
 
   const scrollStep = () => {
     if (window.pageYOffset === 0) {
