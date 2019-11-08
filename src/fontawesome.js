@@ -1,10 +1,14 @@
 // import the library
-import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+  library
+} from "@fortawesome/fontawesome-svg-core";
 
 // import your icons
 // import { faMoneyBill } from '@fortawesome/pro-solid-svg-icons';
 import {} from "@fortawesome/pro-solid-svg-icons";
-import { faTimes } from "@fortawesome/pro-regular-svg-icons";
+import {
+  faTimes as faTimesReg
+} from "@fortawesome/pro-regular-svg-icons";
 import {
   faFilm,
   faBars,
@@ -12,17 +16,21 @@ import {
   faPlus,
   faChevronUp,
   faSpinnerThird,
-  faPopcorn
+  faPopcorn,
+  faCheck,
+  faTimes as faTimesDuo
 } from "@fortawesome/pro-duotone-svg-icons";
 
 library.add(
   faFilm,
   faBars,
   faSearch,
-  faTimes,
+  faTimesReg,
+  faTimesDuo,
   faPlus,
   faChevronUp,
   faSpinnerThird,
-  faPopcorn
+  faPopcorn,
+  faCheck
   // more icons go here
 );

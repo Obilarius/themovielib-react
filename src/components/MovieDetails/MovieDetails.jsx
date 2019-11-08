@@ -7,6 +7,7 @@ import MovieDetailsHeader from "./Header/MovieDetailsHeader";
 import Synopsis from "./TabContent/Synopsis/Synopsis";
 import TabNav from "./TabNav/TabNav";
 import Cast from "./TabContent/Cast/Cast";
+import ShortDetails from "./ShortDetails/ShortDetails";
 
 class MovieDetails extends Component {
   state = {
@@ -23,7 +24,7 @@ class MovieDetails extends Component {
         endpoint: `movie/${id}`,
         param: [
           "language=de-de",
-          "append_to_response=videos,images,external_ids,keywords"
+          "append_to_response=videos,images,external_ids,keywords,release_dates"
         ]
       }
     })
@@ -57,13 +58,13 @@ class MovieDetails extends Component {
     if (movie === null) return <Loader />;
 
     // const releaseYear = `(${movie.release_date.split("-")[0]})`;
-    const tabContent = this.getTabContent();
 
     return (
       <div className="movie-details">
         <MovieDetailsHeader movie={movie} />
+        <ShortDetails movie={movie} />
         <TabNav changeTab={this.changeTabHandler} activeTab={activeTab} />
-        {tabContent}
+        {this.getTabContent()}
       </div>
     );
   }
