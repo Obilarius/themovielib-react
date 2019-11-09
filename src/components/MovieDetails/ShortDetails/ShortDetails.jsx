@@ -24,13 +24,15 @@ const ShortDetails = props => {
       return element.iso_3166_1 === country;
     });
 
-    if(dates == null) {
+    if (dates == null) {
       dates = movie.release_dates.results.find(element => {
         return element.release_dates.find(e => {
-          return e.type === 1
-        })
+          return e.type === 1;
+        });
       });
     }
+
+    if (dates == null) return;
 
     let dateObj = dates.release_dates.find(element => {
       return element.type === 3;
@@ -38,11 +40,15 @@ const ShortDetails = props => {
 
     let note;
     if (dateObj == null) {
-      const [firstDate] = dates.release_dates
+      const [firstDate] = dates.release_dates;
       dateObj = firstDate;
 
-      if(dateObj.note === "Netflix")
-        note = <span className="note"><NetflixLogo /></span>
+      if (dateObj.note === "Netflix")
+        note = (
+          <span className="note">
+            <NetflixLogo />
+          </span>
+        );
     }
 
     let date = new Date(dateObj.release_date);
@@ -55,6 +61,7 @@ const ShortDetails = props => {
       date.getFullYear()
     ].join(".");
 
+    // eslint-disable-next-line consistent-return
     return (
       <div data-tip={dateObj.note}>
         <ReactCountryFlag code={dates.iso_3166_1.toLowerCase()} svg />
@@ -98,10 +105,11 @@ const ShortDetails = props => {
 
 ShortDetails.propTypes = {
   movie: PropTypes.shape({
-    status: PropTypes.string.isRequired,
-    release_date: PropTypes.string.isRequired,
-    runtime: PropTypes.number.isRequired,
-    original_language: PropTypes.string.isRequired
+    status: PropTypes.string,
+    release_date: PropTypes.string,
+    runtime: PropTypes.number,
+    original_language: PropTypes.string,
+    release_dates: PropTypes.array
   }).isRequired
 };
 

@@ -1,6 +1,8 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 import React from "react";
 import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import ReactCountryFlag from "react-country-flag";
 import "./Details.scss";
 
 const Details = props => {
@@ -9,10 +11,22 @@ const Details = props => {
   const getStudios = () => {
     return (
       <>
-        <div>Production Studios:</div>
+        <div>Prod. Studios:</div>
         <div className="studios">
           {movie.production_companies.map(studio => {
-            return <div key={studio.id}>{studio.name}</div>;
+            return (
+              <>
+                {/* <div>
+                  {studio.logo_path && (
+                    <img
+                      src={`https://image.tmdb.org/t/p/w92${studio.logo_path}`}
+                      alt="studiologo"
+                    />
+                  )}
+                </div> */}
+                <div>{studio.name}</div>
+              </>
+            );
           })}
         </div>
       </>
@@ -22,10 +36,15 @@ const Details = props => {
   const getCountries = () => {
     return (
       <>
-        <div>Production Countries:</div>
+        <div>Prod. Countries:</div>
         <div className="countries">
           {movie.production_countries.map(country => {
-            return <div key={country.iso_3166_1}>{country.name}</div>;
+            return (
+              <div key={country.iso_3166_1}>
+                <ReactCountryFlag code={country.iso_3166_1.toLowerCase()} svg />
+                <span>{country.name}</span>
+              </div>
+            );
           })}
         </div>
       </>
@@ -57,9 +76,19 @@ const Details = props => {
       return (
         <>
           <div>Collection:</div>
-          <div className="collection">{movie.belongs_to_collection.name}</div>
+          <div className="collection">
+            {movie.belongs_to_collection.name}
+            {movie.belongs_to_collection.poster_path && (
+              <img
+                src={`https://image.tmdb.org/t/p/w342${movie.belongs_to_collection.poster_path}`}
+                alt=""
+              />
+            )}
+          </div>
         </>
       );
+
+    return null;
   };
 
   const getOriginalTitle = () => {
@@ -75,6 +104,8 @@ const Details = props => {
     const trailer = movie.videos.results.find(video => {
       return video.type === "Trailer";
     });
+
+    if (trailer == null) return null;
 
     return (
       <div className="trailer-wrapper">
@@ -93,6 +124,7 @@ const Details = props => {
   };
 
   const getLinks = () => {
+    // eslint-disable-next-line camelcase
     const { external_ids } = movie;
     return (
       <div className="links-wrapper">
@@ -153,12 +185,12 @@ const Details = props => {
       <div className="details-wrapper">
         {getLinks()}
         <div className="grid">
+          {getOriginalTitle()}
           {getStudios()}
           {getCountries()}
           {getBudget()}
           {getRevenue()}
           {getCollection()}
-          {getOriginalTitle()}
         </div>
         {getTrailer()}
       </div>
@@ -166,6 +198,18 @@ const Details = props => {
   );
 };
 
-Details.propTypes = {};
+Details.propTypes = {
+  movie: PropTypes.shape({
+    production_companies: PropTypes.array,
+    production_countries: PropTypes.array,
+    budget: PropTypes.number,
+    revenue: PropTypes.number,
+    original_title: PropTypes.string,
+    belongs_to_collection: PropTypes.object,
+    videos: PropTypes.array,
+    external_ids: PropTypes.array,
+    homepage: PropTypes.string
+  }).isRequired
+};
 
 export default Details;

@@ -12,6 +12,32 @@
       grid-template-columns: auto 1fr;
       column-gap: 1em;
       row-gap: 10px;
+
+      .countries > div > span:first-child {
+        margin-right: 5px;
+      }
+
+      .studios {
+        // display: grid;
+        // grid-template-columns: auto 1fr;
+        // column-gap: 1em;
+        // row-gap: 5px;
+
+        img {
+          height: 1em;
+          // filter: grayscale(1) brightness(0) invert(1);
+        }
+      }
+
+      .collection {
+        img {
+          width: 50%;
+          display: block;
+          margin-top: 5px;
+          // border-radius: 5px;
+          box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+        }
+      }
     }
 
     .links-wrapper {
