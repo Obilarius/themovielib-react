@@ -4,15 +4,16 @@ import Axios from "axios";
 import Loader from "../../utils/Loader/Loader";
 import "./MovieDetails.scss";
 import MovieDetailsHeader from "./Header/MovieDetailsHeader";
-import Synopsis from "./TabContent/Synopsis/Synopsis";
 import TabNav from "./TabNav/TabNav";
-import Cast from "./TabContent/Cast/Cast";
+
 import ShortDetails from "./ShortDetails/ShortDetails";
-import Details from "./TabContent/Details/Details";
+import TabContent from "./TabContent/TabContent";
+import Footer from "./Footer/Footer";
 
 class MovieDetails extends Component {
   state = {
     movie: null,
+    images: null,
     activeTab: 0
   };
 
@@ -25,37 +26,34 @@ class MovieDetails extends Component {
         endpoint: `movie/${id}`,
         param: [
           "language=de-de",
-          "append_to_response=videos,images,external_ids,keywords,release_dates"
+          "append_to_response=videos,external_ids,keywords,release_dates"
         ]
       }
-    })
-      .then(res => {
-        this.setState({ movie: res.data });
-      })
-      .catch(error => {
-        // eslint-disable-next-line no-console
-        console.log(error);
-      });
+    }).then(res => {
+      this.setState({ movie: res.data });
+    });
+    // .catch(error => {
+    //   console.error(error);
+    // });
+
+    Axios.get(`https://themovielib-api.herokuapp.com/tmdb/`, {
+      params: {
+        endpoint: `movie/${id}/images`
+      }
+    }).then(res => {
+      this.setState({ images: res.data });
+    });
+    // .catch(error => {
+    //   console.error(error);
+    // });
   };
 
   changeTabHandler = index => {
     this.setState({ activeTab: index });
   };
 
-  getTabContent = () => {
-    const { activeTab, movie } = this.state;
-    switch (activeTab) {
-      case 1:
-        return <Details movie={movie} />;
-      case 2:
-        return <Cast movieId={movie.id} />;
-      default:
-        return <Synopsis text={movie.overview} />;
-    }
-  };
-
   render() {
-    const { movie, activeTab } = this.state;
+    const { movie, activeTab, images } = this.state;
     if (movie === null) return <Loader />;
 
     // const releaseYear = `(${movie.release_date.split("-")[0]})`;
@@ -65,7 +63,8 @@ class MovieDetails extends Component {
         <MovieDetailsHeader movie={movie} />
         <ShortDetails movie={movie} />
         <TabNav changeTab={this.changeTabHandler} activeTab={activeTab} />
-        {this.getTabContent()}
+        <TabContent activeTab={activeTab} movie={movie} />
+        {images && <Footer images={images} />}
       </div>
     );
   }

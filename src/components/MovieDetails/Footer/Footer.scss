@@ -1,0 +1,32 @@
+@import "../../../CSS/main.vars.scss";
+
+.movie-details footer {
+  overflow: hidden;
+  position: absolute;
+  height: 200px;
+  width: 100%;
+
+  .backdrop {
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    clip-path: polygon(0 3%, 100% 23%, 100% 100%, 0% 100%);
+  }
+
+  .overlay,
+  .border-top {
+    position: absolute;
+    // background: linear-gradient(0deg, $darkerColor 1%, rgba(0, 0, 0, 0) 50%);
+    background: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    clip-path: polygon(0 3%, 100% 23%, 100% 100%, 0% 100%);
+  }
+
+  .border-top {
+    background: $secondaryColor;
+    clip-path: polygon(0 0%, 100% 20%, 100% 23%, 0% 3%);
+  }
+}

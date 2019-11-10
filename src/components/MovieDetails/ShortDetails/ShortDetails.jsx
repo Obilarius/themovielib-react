@@ -109,7 +109,9 @@ ShortDetails.propTypes = {
     release_date: PropTypes.string,
     runtime: PropTypes.number,
     original_language: PropTypes.string,
-    release_dates: PropTypes.array
+    release_dates: PropTypes.shape({
+      results: PropTypes.array
+    })
   }).isRequired
 };
 

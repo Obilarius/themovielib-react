@@ -4,6 +4,7 @@ import "./Backdrop.scss";
 
 const Backdrop = props => {
   const { url } = props;
+
   const backdropStyle = { backgroundImage: `url(${url})` };
 
   return (
