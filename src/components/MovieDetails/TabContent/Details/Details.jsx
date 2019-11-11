@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ReactCountryFlag from "react-country-flag";
 import "./Details.scss";
+import FlagIcon from "../../../../utils/FlagIcon";
 
 const Details = props => {
   const { movie } = props;
@@ -41,7 +42,7 @@ const Details = props => {
           {movie.production_countries.map(country => {
             return (
               <div key={country.iso_3166_1}>
-                <ReactCountryFlag code={country.iso_3166_1.toLowerCase()} svg />
+                <FlagIcon iso={country.iso_3166_1} />
                 <span>{country.name}</span>
               </div>
             );

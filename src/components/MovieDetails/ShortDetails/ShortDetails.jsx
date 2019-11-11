@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ReactTooltip from "react-tooltip";
-import ReactCountryFlag from "react-country-flag";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./ShortDetails.scss";
 import NetflixLogo from "../../../assets/logos/NetflixLogo";
+import FlagIcon from "../../../utils/FlagIcon";
 
 const ShortDetails = props => {
   const { movie } = props;
@@ -64,7 +64,7 @@ const ShortDetails = props => {
     // eslint-disable-next-line consistent-return
     return (
       <div data-tip={dateObj.note}>
-        <ReactCountryFlag code={dates.iso_3166_1.toLowerCase()} svg />
+        <FlagIcon iso={dates.iso_3166_1} />
         <span className="date">{date}</span>
         {note}
       </div>
@@ -84,7 +84,7 @@ const ShortDetails = props => {
         break;
     }
 
-    return <ReactCountryFlag code={cC} svg />;
+    return <FlagIcon iso={cC} />;
   };
 
   return (
