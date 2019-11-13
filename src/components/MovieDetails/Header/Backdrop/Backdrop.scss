@@ -5,6 +5,7 @@
   position: absolute;
   height: 200px;
   width: 100%;
+  z-index: 5;
 
   .backdrop {
     height: 100%;
@@ -29,5 +30,43 @@
   .border-top {
     background: $secondaryColor;
     clip-path: polygon(0 67%, 100% 87%, 100% 90%, 0% 70%);
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: $mediaM) {
+  .backdrop-wrapper {
+    height: 500px;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: $mediaL) {
+  .backdrop-wrapper {
+    height: 700px;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: $mediaXL) {
+  .backdrop-wrapper {
+
+    .border-top {
+      clip-path: polygon(0 68%, 100% 88%, 100% 90%, 0% 70%);
+    }
+
+    .backdrop {
+      width: 80%;
+      margin: auto;
+
+      &:after {
+        content: " ";
+        display: block;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, $darkerColor 0%, rgba(0, 0, 0, 0) 20%), linear-gradient(270deg, $darkerColor 0%, rgba(0, 0, 0, 0) 20%);
+      }
+    }
   }
 }

@@ -1,8 +1,10 @@
 @import "../../../CSS/main.vars.scss";
 
 nav.tab-nav {
+  display: block;
   background: $primaryColor;
   margin: 0 0 20px 0;
+  z-index: 10;
 
   .container {
     display: flex;
@@ -39,3 +41,16 @@ nav.tab-nav {
     }
   }
 }
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  nav.tab-nav {
+    display: none;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {}
