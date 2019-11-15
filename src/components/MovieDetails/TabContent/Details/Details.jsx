@@ -2,7 +2,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import ReactCountryFlag from "react-country-flag";
 import "./Details.scss";
 import FlagIcon from "../../../../utils/FlagIcon";
 
@@ -15,19 +14,7 @@ const Details = props => {
         <div>Prod. Studios:</div>
         <div className="studios">
           {movie.production_companies.map(studio => {
-            return (
-              <>
-                {/* <div>
-                  {studio.logo_path && (
-                    <img
-                      src={`https://image.tmdb.org/t/p/w92${studio.logo_path}`}
-                      alt="studiologo"
-                    />
-                  )}
-                </div> */}
-                <div>{studio.name}</div>
-              </>
-            );
+            return <div>{studio.name}</div>;
           })}
         </div>
       </>
