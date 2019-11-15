@@ -1,0 +1,37 @@
+.movie-list {
+  .poster-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 5px;
+    justify-items: center;
+    justify-content: space-between;
+    margin: 10px 0;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .movie-list {
+    .poster-grid {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 200px));
+    }
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .movie-list {
+    .poster-grid {
+      grid-template-columns: repeat(auto-fill, 200px);
+    }
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .movie-list {
+    .poster-grid {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+  }
+}

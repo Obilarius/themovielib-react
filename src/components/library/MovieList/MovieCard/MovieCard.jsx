@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import CircularProgressbar from "../../../utils/CircularProgressbar/CircularProgressbar";
+import LazyLoad from "react-lazy-load";
+import CircularProgressbar from "../../../../utils/CircularProgressbar/CircularProgressbar";
 import "./MovieCard.scss";
 
 function MovieCard(props) {
@@ -13,7 +14,9 @@ function MovieCard(props) {
   return (
     <Link to={`/movie/${movie.tmdb_id}`} className="movie-card">
       <div className="content">
-        <img src={POSTER_URL} alt="poster" />
+        <LazyLoad offsetVertical={500}>
+          <img src={POSTER_URL} alt="poster" />
+        </LazyLoad>
         <div className="tmdb-percent">
           <CircularProgressbar percentage={movie.tmdb_vote_average * 10} />
         </div>
