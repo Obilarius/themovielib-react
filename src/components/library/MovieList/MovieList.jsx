@@ -1,14 +1,13 @@
+/* eslint-disable react/forbid-prop-types */
 import React from "react";
 import PropTypes from "prop-types";
 import InfiniteScroll from "react-infinite-scroller";
-import Loader from "../../../utils/Loader/Loader";
+// import Loader from "../../../utils/Loader/Loader";
 import MovieCard from "./MovieCard/MovieCard";
 import "./MovieList.scss";
 
 const MovieList = props => {
   const { movies, loadMore, hasMore } = props;
-  const loader = <Loader />;
-  // const loader = <div></div>;
 
   const getMovieCards = () => {
     const movieCards = [];
@@ -39,6 +38,10 @@ const MovieList = props => {
   );
 };
 
-MovieList.propTypes = {};
+MovieList.propTypes = {
+  movies: PropTypes.array.isRequired,
+  loadMore: PropTypes.func.isRequired,
+  hasMore: PropTypes.bool.isRequired
+};
 
 export default MovieList;
