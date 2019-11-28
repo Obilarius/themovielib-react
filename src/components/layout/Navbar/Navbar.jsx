@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import AuthService from "../../auth/AuthService";
 import "./Navbar.scss";
 import SignedInLinks from "./LinkLists/SignedInLinks";
-// import SignedOutLinks from "./SignedOutLinks";
+import SignedOutLinks from "./LinkLists/SignedOutLinks";
 // import Searchfield from "./Searchfield";
 
 const Navbar = () => {
@@ -12,13 +13,19 @@ const Navbar = () => {
     linkList.classList.toggle("open");
   };
 
+  const linkList = AuthService.loggedIn() ? (
+    <SignedInLinks />
+  ) : (
+    <SignedOutLinks />
+  );
+
   return (
     <div className="navbar-wrapper">
       <nav className="navbar">
         <div className="container">
           <Link className="brand" to="/">
             <FontAwesomeIcon icon={["fad", "film"]} />
-            TheMovieLib
+            TEST
           </Link>
           <div className="burger" onClick={handleClickHamburger}>
             <FontAwesomeIcon icon={["fad", "bars"]} />
@@ -29,10 +36,7 @@ const Navbar = () => {
       {/* <Searchfield /> */}
 
       <div className="linklist">
-        <div className="container">
-          {/* <SignedOutLinks /> */}
-          <SignedInLinks />
-        </div>
+        <div className="container">{linkList}</div>
       </div>
     </div>
   );
