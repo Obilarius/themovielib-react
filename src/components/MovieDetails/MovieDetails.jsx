@@ -56,8 +56,6 @@ class MovieDetails extends Component {
     const { movie, activeTab, images } = this.state;
     if (movie === null) return <Loader />;
 
-    // const releaseYear = `(${movie.release_date.split("-")[0]})`;
-
     return (
       <div className="movie-details">
         <MovieDetailsHeader movie={movie} />

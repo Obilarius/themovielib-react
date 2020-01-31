@@ -1,5 +1,7 @@
 // import the library
-import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+  library
+} from "@fortawesome/fontawesome-svg-core";
 
 // import your icons
 // import { faMoneyBill } from '@fortawesome/pro-solid-svg-icons';
@@ -17,7 +19,8 @@ import {
   faSpinnerThird,
   faPopcorn,
   faCheck,
-  faTimes as faTimesDuo
+  faTimes as faTimesDuo,
+  faUser as faUserDuo
 } from "@fortawesome/pro-duotone-svg-icons";
 import {
   faImdb,
@@ -41,6 +44,7 @@ library.add(
   faImdb,
   faFacebookSquare,
   faInstagram,
-  faTwitterSquare
+  faTwitterSquare,
+  faUserDuo
   // more icons go here
 );

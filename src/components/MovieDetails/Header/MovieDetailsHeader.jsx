@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+// import Overdrive from "react-overdrive";
 import "./MovieDetailsHeader.scss";
 import Rating from "./Rating/Rating";
 import Genre from "./Genre/Genre";
@@ -27,7 +28,9 @@ const MovieDetailsHeader = props => {
     <section className="movie-details-header">
       <Backdrop url={urls.backdrop} />
       <div className="container movie-information-row">
+        {/* <Overdrive id={`poster-${movie.id}`}> */}
         <img src={urls.poster} alt="" className="poster" />
+        {/* </Overdrive> */}
         <div>
           <div className="title-row">{movie.title}</div>
           <Rating tmdbRating={movie.vote_average} ownRating={4.5} />
@@ -40,6 +43,7 @@ const MovieDetailsHeader = props => {
 
 MovieDetailsHeader.propTypes = {
   movie: PropTypes.shape({
+    id: PropTypes.number.isRequired,
     backdrop_path: PropTypes.string.isRequired,
     poster_path: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,

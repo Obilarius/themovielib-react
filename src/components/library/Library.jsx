@@ -1,56 +1,47 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import MovieCard from "./MovieCard/MovieCard";
 import Searchfield from "../layout/Searchfield";
-import Loader from "../../utils/Loader/Loader";
 import "./Library.scss";
 import GoToTop from "../../utils/GoToTop/GoToTop";
+import MovieList from "./MovieList/MovieList";
 
 class Library extends Component {
   state = {
     searchTerm: "",
     movies: [],
-    loadMore: false,
-    page: 1,
-    totalPages: null
-  };
-
-  componentDidMount() {
-    document.addEventListener("scroll", this.handleScroll);
-    this.loadMovies(1);
-  }
-
-  handleScroll = () => {
-    const { loadMore, page } = this.state;
-    const offset = 1.2;
-    const wrappedElement = document.getElementById("library");
-    if (wrappedElement === null) return;
-
-    const bottom =
-      window.innerHeight * offset >=
-      wrappedElement.getBoundingClientRect().bottom;
-    if (bottom && !loadMore) {
-      this.setState({ loadMore: true, page: page + 1 });
-      this.loadMovies(page + 1);
-    }
+    hasMoreItems: true,
+    nextPage: null
   };
 
   loadMovies = page => {
-    const { movies, totalPages } = this.state;
+    const { movies, nextPage } = this.state;
 
-    if (totalPages != null && totalPages < page) return;
+    // if (totalPages != null && totalPages < page) return;
 
-    const API_LINK = `https://themovielib-api.herokuapp.com/lib?page=${page}`;
+    let API_LINK = `https://themovielib-api.herokuapp.com/lib?page=`;
+
+    if (nextPage != null) API_LINK += nextPage;
+    else API_LINK += page;
 
     axios.get(API_LINK).then(res => {
-      const newMovies = res.data.results;
-      const newTotalPages = res.data.total_pages;
-      this.setState({
-        movies: [...movies, ...newMovies],
-        totalPages: newTotalPages,
-        loadMore: false
-      });
+      if (res) {
+        const newMovies = res.data.results;
+
+        this.setState({
+          movies: [...movies, ...newMovies]
+        });
+
+        if (res.data.next_page) {
+          this.setState({
+            nextPage: res.data.next_page
+          });
+        } else {
+          this.setState({
+            hasMoreItems: false
+          });
+        }
+      }
     });
   };
 
@@ -62,29 +53,8 @@ class Library extends Component {
     this.setState({ searchTerm: "" });
   };
 
-  getMovieCards = () => {
-    const { movies } = this.state;
-
-    let movieCards = <Loader />;
-
-    if (movies.lenght !== 0) {
-      movieCards = (
-        <div className="poster-grid">
-          {movies.map(movie => {
-            return (
-              // eslint-disable-next-line no-underscore-dangle
-              <MovieCard type="Poster" movie={movie} key={movie._id} />
-            );
-          })}
-        </div>
-      );
-    }
-
-    return movieCards;
-  };
-
   render() {
-    const { searchTerm } = this.state;
+    const { searchTerm, hasMoreItems, movies } = this.state;
 
     return (
       <>
@@ -101,7 +71,11 @@ class Library extends Component {
               <span>New Movie</span>
               <FontAwesomeIcon icon={["fad", "film"]} size="lg" />
             </button>
-            {this.getMovieCards()}
+            <MovieList
+              movies={movies}
+              loadMore={this.loadMovies}
+              hasMore={hasMoreItems}
+            />
           </div>
         </div>
       </>

@@ -4,12 +4,14 @@
 section.movie-details-header {
   position: relative;
 
+
   .movie-information-row {
     display: flex;
     align-items: flex-end;
     position: relative;
     padding-top: 150px;
     // top: -50px;
+    z-index: 5;
 
     .poster {
       width: 35%;
@@ -25,8 +27,51 @@ section.movie-details-header {
       }
 
       .title-row {
-        font-size: 18px;
+        font-size: 1.1em;
         font-weight: 500;
+      }
+    }
+  }
+
+  // Medium devices (tablets, 768px and up)
+  @media (min-width: $mediaM) {
+    .movie-information-row {
+      padding-top: 250px;
+      font-size: 1.5rem;
+
+      .poster {
+        height: 400px;
+        width: auto;
+      }
+
+      >div {
+        margin-left: 20px;
+      }
+    }
+  }
+
+  // Large devices (desktops, 992px and up)
+  @media (min-width: $mediaL) {
+    .movie-information-row {
+      padding-top: 350px;
+    }
+  }
+
+  // Extra large devices (large desktops, 1200px and up)
+  @media (min-width: $mediaXL) {
+    .movie-information-row {
+      padding-top: 450px;
+
+      >div {
+
+        >div:nth-child(1),
+        >div:nth-child(2) {
+          margin-bottom: 1em;
+        }
+
+        .title-row {
+          font-size: 1.3em;
+        }
       }
     }
   }

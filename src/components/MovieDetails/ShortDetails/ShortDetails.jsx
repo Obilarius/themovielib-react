@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ReactTooltip from "react-tooltip";
-import ReactCountryFlag from "react-country-flag";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./ShortDetails.scss";
 import NetflixLogo from "../../../assets/logos/NetflixLogo";
+import FlagIcon from "../../../utils/FlagIcon";
 
 const ShortDetails = props => {
   const { movie } = props;
@@ -63,11 +63,11 @@ const ShortDetails = props => {
 
     // eslint-disable-next-line consistent-return
     return (
-      <div data-tip={dateObj.note}>
-        <ReactCountryFlag code={dates.iso_3166_1.toLowerCase()} svg />
+      <>
+        <FlagIcon iso={dates.iso_3166_1} />
         <span className="date">{date}</span>
         {note}
-      </div>
+      </>
     );
   };
 
@@ -84,20 +84,36 @@ const ShortDetails = props => {
         break;
     }
 
-    return <ReactCountryFlag code={cC} svg />;
+    return <FlagIcon iso={cC} />;
   };
 
   return (
-    <section className="container">
-      <div className="shortdetails-wrapper">
+    <section className="shortdetails-wrapper">
+      {/* <div className="shortdetails-wrapper">
         <ReactTooltip place="bottom" type="light" effect="float" />
         <div data-tip={movie.status}>{getStatus()}</div>
-        <div className="release_date">
-          {/* {getReleaseDate("US", 3)} */}
-          {getReleaseDate("DE")}
-        </div>
+        <div className="release_date">{getReleaseDate("DE")}</div>
         <div data-tip="Runtime">{`${movie.runtime}m`}</div>
         <div data-tip="Original Language">{getOriginalLanguage()}</div>
+      </div> */}
+      <div className="container">
+        <ReactTooltip place="bottom" type="light" effect="float" />
+        <div data-tip={movie.status}>
+          <div className="label">Status:</div>
+          <div>{getStatus()}</div>
+        </div>
+        <div className="release_date" data-tip="ReleaseDate">
+          <div className="label">ReleaseDate:</div>
+          <div>{getReleaseDate("DE")}</div>
+        </div>
+        <div data-tip="Runtime">
+          <div className="label">Runtime:</div>
+          <div>{`${movie.runtime}m`}</div>
+        </div>
+        <div data-tip="Original Language">
+          <div className="label">Original Language:</div>
+          <div>{getOriginalLanguage()}</div>
+        </div>
       </div>
     </section>
   );

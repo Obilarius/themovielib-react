@@ -4,6 +4,10 @@
 @import "./reset.scss";
 @import "./main.vars.scss";
 
+* {
+  box-sizing: border-box;
+}
+
 body,
 html {
   background-color: $darkerColor;
@@ -20,10 +24,21 @@ a {
   margin: 0 auto;
 }
 
+// Small devices (mobile, 768px and lower)
+@media (max-width: 768px) {
+  .hide-s {
+    display: none;
+  }
+}
+
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
   html {
     font-size: 18px;
+  }
+
+  .hide-m {
+    display: none;
   }
 }
 
@@ -32,11 +47,31 @@ a {
   .container {
     width: 80%;
   }
+
+  .hide-l {
+    display: none;
+  }
 }
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
   .container {
-    width: 70%;
+    width: 60%;
+  }
+
+  .hide-xl {
+    display: none;
   }
 }
+
+
+// @media (max-width: 768px) {}
+
+// // Medium devices (tablets, 768px and up)
+// @media (min-width: 768px) {}
+
+// // Large devices (desktops, 992px and up)
+// @media (min-width: 992px) {}
+
+// // Extra large devices (large desktops, 1200px and up)
+// @media (min-width: 1200px) {}
