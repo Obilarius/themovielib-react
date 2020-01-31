@@ -1,7 +1,6 @@
 /* @import url("http://fonts.googleapis.com/css?family=Roboto:400,100"); */
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,700");
 
-@import "./reset.scss";
 @import "./main.vars.scss";
 
 * {
@@ -12,6 +11,7 @@ body,
 html {
   background-color: $darkerColor;
   font-family: "Montserrat", sans-serif;
+  color: $lightColor;
 }
 
 a {
@@ -23,47 +23,6 @@ a {
   width: 90%;
   margin: 0 auto;
 }
-
-// Small devices (mobile, 768px and lower)
-@media (max-width: 768px) {
-  .hide-s {
-    display: none;
-  }
-}
-
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
-  html {
-    font-size: 18px;
-  }
-
-  .hide-m {
-    display: none;
-  }
-}
-
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
-  .container {
-    width: 80%;
-  }
-
-  .hide-l {
-    display: none;
-  }
-}
-
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
-  .container {
-    width: 60%;
-  }
-
-  .hide-xl {
-    display: none;
-  }
-}
-
 
 // @media (max-width: 768px) {}
 
