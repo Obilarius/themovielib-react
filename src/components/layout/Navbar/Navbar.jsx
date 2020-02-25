@@ -13,6 +13,8 @@ const Navbar = () => {
     linkList.classList.toggle("open");
   };
 
+  console.log("LoggedIN: ", AuthService.loggedIn());
+
   const linkList = AuthService.loggedIn() ? (
     <SignedInLinks />
   ) : (

@@ -1,0 +1,11 @@
+.circular-progressbar {
+  svg text.CircularProgressbar-text {
+    transform: translate(-28%, 10%);
+  }
+
+  @media (min-width: 768px) {
+    svg path {
+      stroke-width: 7;
+    }
+  }
+}

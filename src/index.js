@@ -4,7 +4,7 @@ import { CookiesProvider } from "react-cookie";
 import App from "./components/app/App";
 import * as serviceWorker from "./serviceWorker";
 import "./fontawesome";
-import "./CSS/index.scss";
+import "./css/index.scss";
 
 ReactDOM.render(
   <CookiesProvider>

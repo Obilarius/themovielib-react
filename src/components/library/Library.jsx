@@ -24,25 +24,29 @@ class Library extends Component {
     if (nextPage != null) API_LINK += nextPage;
     else API_LINK += page;
 
-    axios.get(API_LINK).then(res => {
-      if (res) {
-        const newMovies = res.data.results;
+    axios
+      .get(API_LINK, {
+        headers: { Authorization: `Bearer ` }
+      })
+      .then(res => {
+        if (res) {
+          const newMovies = res.data.results;
 
-        this.setState({
-          movies: [...movies, ...newMovies]
-        });
+          this.setState({
+            movies: [...movies, ...newMovies]
+          });
 
-        if (res.data.next_page) {
-          this.setState({
-            nextPage: res.data.next_page
-          });
-        } else {
-          this.setState({
-            hasMoreItems: false
-          });
+          if (res.data.next_page) {
+            this.setState({
+              nextPage: res.data.next_page
+            });
+          } else {
+            this.setState({
+              hasMoreItems: false
+            });
+          }
         }
-      }
-    });
+      });
   };
 
   handleSearchTermChange = e => {
