@@ -28,7 +28,11 @@
     "react-rating": "^2.0.0",
     "react-router": "^5.1.2",
     "react-router-dom": "^5.1.2",
+<<<<<<< HEAD
     "react-scripts": "^3.4.0",
+=======
+    "react-scripts": "^3.3.1",
+>>>>>>> 0da6502748b81104684a0919ee102718050b1721
     "react-tooltip": "^3.11.1"
   },
   "scripts": {
