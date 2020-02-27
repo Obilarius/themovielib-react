@@ -1,0 +1,69 @@
+@import "../../../css/main.vars.scss";
+
+.button {
+  font: inherit;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid $primaryColor;
+  // border-radius: 4px;
+  background: $primaryColor;
+  color: white;
+  cursor: pointer;
+  margin-right: 1rem;
+  margin-top: 1.5rem;
+  text-decoration: none;
+  display: inline-block;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover,
+  &:active {
+    background: darken($primaryColor, 10%);
+    border-color: darken($primaryColor, 10%)
+  }
+
+  &.button--inverse {
+    background: transparent;
+    color: $primaryColor;
+  }
+
+  &.button--inverse:hover,
+  &.button--inverse:active {
+    color: white;
+    background: $primaryColor;
+  }
+
+  &.button--full {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  &.button--danger {
+    background: #c20909;
+    border-color: #c20909;
+  }
+
+  &.button--danger:hover,
+  &.button--danger:active {
+    background: #f34343;
+    border-color: #f34343;
+  }
+
+  &:disabled,
+  &:hover:disabled,
+  &:active:disabled {
+    background: #ccc;
+    color: #979797;
+    border-color: #ccc;
+    cursor: not-allowed;
+  }
+
+  &.button--small {
+    font-size: 0.8rem;
+  }
+
+  &.button--big {
+    font-size: 1.5rem;
+  }
+}

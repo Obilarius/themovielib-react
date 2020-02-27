@@ -1,35 +1,81 @@
-/* eslint-disable react/prop-types */
-import React, { Component } from "react";
+import React, { useCallback, useReducer, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import AuthService from "./AuthService";
+
+import Input from "../shared/FormElements/Input";
+import { VALIDATOR_REQUIRE } from "../utils/validators";
+import Button from "../shared/FormElements/Button";
 import "./Login.scss";
 
-class Login extends Component {
-  state = {
-    username: "",
-    password: "",
-    loading: false
-  };
+const formReducer = (state, action) => {
+  switch (action.type) {
+    case "INPUT_CHANGE":
+      let formIsValid = true;
+      Object.keys(state.inputs).forEach(inputId => {
+        if (inputId === action.payload.inputId) {
+          formIsValid = formIsValid && action.payload.isValid;
+        } else {
+          formIsValid = formIsValid && state.inputs[inputId].isValid;
+        }
+      });
 
-  componentDidMount = () => {
-    const { history } = this.props;
+      return {
+        ...state,
+        inputs: {
+          ...state.inputs,
+          [action.payload.inputId]: {
+            value: action.payload.value,
+            isValid: action.payload.isValid
+          }
+        },
+        isValid: formIsValid
+      };
 
+    default:
+      return state;
+  }
+};
+
+const Login = props => {
+  const [formState, dispatch] = useReducer(formReducer, {
+    inputs: {
+      username: {
+        value: "",
+        isValid: false
+      },
+      password: {
+        value: "",
+        isValid: false
+      }
+    },
+    isValid: false
+  });
+
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    const { history } = props;
     if (AuthService.loggedIn()) history.replace(`/`);
-  };
+  }, []);
 
-  handleChange = event => {
-    const { name, value } = event.target;
-    this.setState({ [name]: value });
-  };
+  const inputHandler = useCallback((id, value, isValid) => {
+    dispatch({
+      type: "INPUT_CHANGE",
+      payload: { value, isValid, inputId: id }
+    });
+  }, []);
 
-  handleSubmit = event => {
+  const submitHandler = event => {
     event.preventDefault();
-    this.setState({ loading: true });
-    const { username, password } = this.state;
-    const { history } = this.props;
+    setIsLoading(true);
 
-    AuthService.login(username, password)
+    const { history } = props;
+
+    AuthService.login(
+      formState.inputs.username.value,
+      formState.inputs.password.value
+    )
       .then(() => {
         history.replace("/");
       })
@@ -38,48 +84,37 @@ class Login extends Component {
       });
   };
 
-  render() {
-    const { username, password, loading } = this.state;
-
-    return (
-      <div className="container">
-        {/* {loading && <Loader />} */}
-        <div className="signIn">
-          <div className="img">
-            <FontAwesomeIcon icon={["fad", "user"]} />
-          </div>
-          <form onSubmit={this.handleSubmit}>
-            <label htmlFor="username">
-              Username
-              <input
-                type="text"
-                name="username"
-                id="username"
-                placeholder="type your username"
-                value={username}
-                onChange={this.handleChange}
-              />
-            </label>
-            <label htmlFor="password">
-              Password
-              <input
-                type="password"
-                name="password"
-                id="password"
-                placeholder="type your password"
-                value={password}
-                onChange={this.handleChange}
-              />
-            </label>
-            <Link className="forgot-password" to="/forgot">
-              forgot password?
-            </Link>
-            <input className="submit" type="submit" value="Login" />
-          </form>
-        </div>
-      </div>
-    );
-  }
-}
+  return (
+    <div className="container">
+      <form className="login-form" onSubmit={submitHandler}>
+        <Input
+          id="username"
+          element="input"
+          placeholder="type your username or email"
+          label="Username or Email"
+          validators={[VALIDATOR_REQUIRE()]}
+          errorText="Please enter a valid username or email"
+          onInput={inputHandler}
+        />
+        <Input
+          id="password"
+          element="input"
+          type="password"
+          placeholder="type your password"
+          label="Password"
+          validators={[VALIDATOR_REQUIRE()]}
+          errorText="Please enter your password"
+          onInput={inputHandler}
+        />
+        <Link className="forgot-password" to="/forgot">
+          forgot password?
+        </Link>
+        <Button type="submit" disabled={!formState.isValid}>
+          Login
+        </Button>
+      </form>
+    </div>
+  );
+};
 
 export default Login;

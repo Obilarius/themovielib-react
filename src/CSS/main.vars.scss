@@ -14,6 +14,8 @@ $mediaXL: 1200px;
 
 
 
+$primaryGradient: linear-gradient(90deg, $primaryColor, $secondaryColor);
+
 @mixin main-gradient($direction) {
   background: $primaryColor;
   background: linear-gradient($direction, $primaryColor, $secondaryColor);

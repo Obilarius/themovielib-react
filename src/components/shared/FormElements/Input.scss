@@ -1,7 +1,7 @@
 @import "../../../css/main.vars.scss";
 
 .form-control {
-  margin-top: 5px;
+  margin-top: 25px;
   margin-bottom: 15px;
   color: $lightColor;
 
@@ -14,7 +14,7 @@
   input,
   textarea {
     width: 100%;
-    margin: 5px 0 15px 0;
+    margin: 5px 0 5px 0;
     padding: 10px;
     background: none;
     border: none;
@@ -24,17 +24,22 @@
 
     &:active,
     &:focus {
-      border-bottom-color: $secondaryColor;
+      border-color: $secondaryColor;
     }
   }
 
-  &.invalid label,
-  &.invalid p {
+  &.form-control__invalid label,
+  &.form-control__invalid p {
     color: red;
   }
 
-  &.invalid input,
-  &.invalid textarea {
+  p {
+    margin: 0;
+    font-size: 0.8rem;
+  }
+
+  &.form-control__invalid input,
+  &.form-control__invalid textarea {
     border-color: red;
   }
 }
