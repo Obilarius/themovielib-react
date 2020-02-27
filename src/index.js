@@ -1,9 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { CookiesProvider } from "react-cookie";
-import App from "./components/app/App";
+import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import "./fontawesome";
+import "semantic-ui-css/semantic.min.css";
 import "./css/index.scss";
 
 ReactDOM.render(

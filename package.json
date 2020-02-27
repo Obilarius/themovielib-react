@@ -2,6 +2,7 @@
   "name": "themovielib-react",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:4000",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
     "@fortawesome/free-brands-svg-icons": "^5.11.2",
@@ -24,12 +25,15 @@
     "react-dom": "^16.10.2",
     "react-infinite-scroller": "^1.2.4",
     "react-lazy-load": "^3.0.13",
+    "react-lazy-load-image-component": "^1.4.1",
     "react-overdrive": "0.0.10",
     "react-rating": "^2.0.0",
     "react-router": "^5.1.2",
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.4.0",
-    "react-tooltip": "^3.11.1"
+    "react-tooltip": "^3.11.1",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^0.88.2"
   },
   "scripts": {
     "start": "react-scripts start",

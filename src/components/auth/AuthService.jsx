@@ -11,7 +11,6 @@ export default class AuthService {
   static domain = "https://themovielib-api.herokuapp.com";
 
   static login = (username, password) => {
-    console.log(username, password);
     // Get a token from api server using the fetch api
     return this.fetch(`${this.domain}/users/login`, {
       method: "POST",

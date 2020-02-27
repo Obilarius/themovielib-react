@@ -1,19 +1,9 @@
-// :root {
-//   /* --theme-darker: #2e3236 !important;
-//   --theme-dark: #31647f !important;
-//   --theme-info: #17a2b8 !important;
-//   --theme-light: #e9edf6 !important;
-//   --theme-warning: #ffb33a !important; */
+// $primaryColor: hsla(162, 52, 55, 1);
+// $secondaryColor: hsla(36, 100, 61, 1);
 
-//   --primary: hsla(162, 52, 55, 1) !important;
-//   --secondary: hsla(36, 100, 61, 1) !important;
-//   --light: hsla(221, 41, 93, 1) !important;
-//   --dark: hsla(200, 44, 34, 1) !important;
-//   --darker: hsla(210, 5, 14, 1) !important;
-// }
 
-$primaryColor: hsla(162, 52, 55, 1);
-$secondaryColor: hsla(36, 100, 61, 1);
+$primaryColor: #79f1a4;
+$secondaryColor: #0e5cad;
 $lightColor: hsla(221, 41, 93, 1);
 $darkColor: hsla(200, 44, 34, 1);
 $darkerColor: hsla(210, 5, 14, 1);
@@ -21,3 +11,10 @@ $darkerColor: hsla(210, 5, 14, 1);
 $mediaM: 768px;
 $mediaL: 992px;
 $mediaXL: 1200px;
+
+
+
+@mixin main-gradient($direction) {
+  background: $primaryColor;
+  background: linear-gradient($direction, $primaryColor, $secondaryColor);
+}
