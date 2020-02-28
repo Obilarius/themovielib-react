@@ -1,6 +1,6 @@
 import React, { useCallback, useReducer, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import AuthService from "./AuthService";
 
 import Input from "../shared/FormElements/Input";

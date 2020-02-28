@@ -1,12 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {
-  CircularProgressbar as CP,
-  buildStyles
-} from "react-circular-progressbar";
-import "./CircularProgressbar.scss";
+import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
+import "./CircularRating.scss";
 
-const CircularProgressbar = props => {
+const CircularRating = props => {
   const { percentage } = props;
   let pathColor = "rgb(20, 179, 20)"; // grün
   if (percentage <= 66) pathColor = "rgb(230, 230, 20)"; // gelb
@@ -14,7 +11,7 @@ const CircularProgressbar = props => {
 
   return (
     <div className="circular-progressbar">
-      <CP
+      <CircularProgressbar
         value={percentage}
         text={`${percentage}%`}
         strokeWidth={15}
@@ -45,8 +42,8 @@ const CircularProgressbar = props => {
   );
 };
 
-CircularProgressbar.propTypes = {
+CircularRating.propTypes = {
   percentage: PropTypes.number.isRequired
 };
 
-export default CircularProgressbar;
+export default CircularRating;
