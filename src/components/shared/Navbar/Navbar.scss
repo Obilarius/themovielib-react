@@ -1,67 +1,72 @@
 @import "../../../css/main.vars.scss";
 
-#navbar {
-  width: 100vw;
+
+#navbar__wrapper {
   height: 50px;
-  // background-color: rgba($color: #000000, $alpha: 0.5);
-  background: $darkerColor;
-  z-index: 1000;
-  position: relative;
-  color: $lightColor;
 
-  .container {
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-    line-height: 50px;
+  #navbar {
+    width: 100vw;
+    height: 50px;
+    // background-color: rgba($color: #000000, $alpha: 0.5);
+    background: $darkerColor;
+    z-index: 1000;
+    position: fixed;
+    color: $lightColor;
 
-    .navbar__brand {
-      font-size: 1.6rem;
-      color: $primaryColor;
-      margin: auto 0;
+    .container {
       display: flex;
-      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      line-height: 50px;
 
-      svg {
-        margin-right: 0.5rem;
-      }
-    }
+      .navbar__brand {
+        font-size: 1.6rem;
+        color: $primaryColor;
+        margin: auto 0;
+        display: flex;
+        align-items: center;
 
-    .navbar__linklist {
-      display: flex;
-      color: rgb(161, 161, 161);
-
-      .nav-link {
-        text-align: center;
-        padding: 0 15px;
-
-        &.active {
-          color: white;
+        svg {
+          margin-right: 0.5rem;
         }
+      }
 
-        &:hover {
-          color: rgb(216, 216, 216);
+      .navbar__linklist {
+        display: flex;
+        color: rgb(161, 161, 161);
+
+        .nav-link {
+          text-align: center;
+          padding: 0 15px;
 
           &.active {
             color: white;
           }
+
+          &:hover {
+            color: rgb(216, 216, 216);
+
+            &.active {
+              color: white;
+            }
+          }
         }
-      }
 
-      .avatar {
-        padding: 0 0 0 15px;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
+        .avatar {
+          padding: 0 0 0 15px;
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
 
-        >div {
-          background-image: url("https://i.pravatar.cc/50");
-          background-position: center;
-          background-repeat: no-repeat;
-          background-size: cover;
-          width: 30px;
-          height: 30px;
-          border-radius: 50%;
+          >div {
+            background-image: url("https://i.pravatar.cc/50");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+          }
         }
       }
     }

@@ -15,7 +15,7 @@
     background-position: center;
     background-size: cover;
     background: linear-gradient(45deg, $primaryColor, $secondaryColor);
-    // filter: blur(5px);
+    filter: blur(5px);
 
     .lazy-load-image-background {
       height: 100%;
@@ -28,7 +28,12 @@
       }
     }
 
+    &:hover .overlay {
+      display: block;
+    }
+
     .overlay {
+      display: none;
       position: absolute;
       top: 0;
       left: 0;
