@@ -4,6 +4,7 @@ import Navbar from "./components/shared/Navbar/Navbar";
 import Home from "./components/sites/Home/Home";
 import Library from "./components/sites/Library/Library";
 import Login from "./components/auth/Login";
+import PrivateRoute from "./components/auth/PrivateRoute";
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
       <Navbar />
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/library" component={Library} />
+        <PrivateRoute exact path="/library" component={Library} />
         <Route exact path="/login" component={Login} />
       </Switch>
     </Router>

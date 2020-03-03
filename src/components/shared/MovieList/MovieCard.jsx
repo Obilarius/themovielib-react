@@ -6,7 +6,11 @@ const MovieCard = ({ movie, innerRef }) => {
   const date = movie.release_date.split("T")[0];
 
   return (
-    <div className="movie-card" ref={innerRef}>
+    <div
+      className="movie-card"
+      ref={innerRef}
+      onClick={() => console.log(movie)}
+    >
       {movie.poster_path && (
         <LazyLoadImage
           effect="blur"

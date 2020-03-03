@@ -1,10 +1,9 @@
 import React, { useEffect, useState, useRef, useCallback } from "react";
-import InfiniteScroll from "react-infinite-scroller";
+import AuthService from "../../auth/AuthService";
 
 import "./MovieList.scss";
 import Axios from "axios";
 import MovieCard from "./MovieCard";
-import { forwardRef } from "react";
 
 const MovieList = ({ url }) => {
   const [page, setPage] = useState(1);
@@ -31,13 +30,15 @@ const MovieList = ({ url }) => {
 
   useEffect(() => {
     setLoading(true);
-    Axios.get(`https://themovielib-api.herokuapp.com/movie?page=${page}`).then(
-      res => {
-        setMovies([...movies, ...res.data.results]);
-        setHasMore(res.data.next_page != null);
-        setLoading(false);
+    Axios.get(`${url}?page=${page}`, {
+      headers: {
+        Authorization: `Bearer ${AuthService.getToken()}`
       }
-    );
+    }).then(res => {
+      setMovies([...movies, ...res.data.results]);
+      setHasMore(res.data.next_page != null);
+      setLoading(false);
+    });
   }, [page]);
 
   return (
